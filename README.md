@@ -54,9 +54,27 @@ VB .Net is not case-sensitive - because it is basic!
 
 ![](image/README/iw_014.png)
 
-## C# Web API
+## C#
+
+### Using .Net Core + MVC + Swagger + VSCode!
+
+.NET 5 REST API Tutorial - Build From Scratch With C#
+
+https://www.youtube.com/watch?v=ZXdFisA_hOY
+
+.NET Core 3.1 MVC REST API - Full Course
+
+https://www.youtube.com/watch?v=fmvcAzHpsk8
+
+![](image/README/MVC_01.png)
+
+![](image/README/MVC_02.png)
 
 dotnet new ...
+
+dotnet add ...
+
+dotnet ef
 
 ```dos
 [ApiController]
@@ -80,12 +98,26 @@ public class Person
 }
 ```
 
-Refit REST API Client for C#
+### Web API
+
+Visual Studio
+
+### Refit
+
+Visual Studio
 
 Refit is a type-safe REST Client for . NET Core, Xamarin and . Net - developed by Paul Betts. It is inspired by Square's Retrofit library. Refit makes it relatively easy to make calls to REST API, without writing much of wrapping code.
+
+## Entity Framework, EFCore
+
+## MVC? Blazor? Razor Pages?
 
 ## Misc
 
 Linq
 
 Razor
+
+MVC
+
+the Repository Pattern, Dependency Injection, Entity Framework, Data Transfer Objects (DTOs), AutoMapper
