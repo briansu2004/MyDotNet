@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Code\\MyDotNet\\DotNet5-REST\\Catalog\\Catalog.csproj": {}
+    "c:\\Code\\MyDotNet\\DotNet5-REST\\Catalog\\Catalog.csproj": {}
   },
   "projects": {
-    "C:\\Code\\MyDotNet\\DotNet5-REST\\Catalog\\Catalog.csproj": {
+    "c:\\Code\\MyDotNet\\DotNet5-REST\\Catalog\\Catalog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Code\\MyDotNet\\DotNet5-REST\\Catalog\\Catalog.csproj",
+        "projectUniqueName": "c:\\Code\\MyDotNet\\DotNet5-REST\\Catalog\\Catalog.csproj",
         "projectName": "Catalog",
-        "projectPath": "C:\\Code\\MyDotNet\\DotNet5-REST\\Catalog\\Catalog.csproj",
+        "projectPath": "c:\\Code\\MyDotNet\\DotNet5-REST\\Catalog\\Catalog.csproj",
         "packagesPath": "C:\\Users\\x239757\\.nuget\\packages\\",
-        "outputPath": "C:\\Code\\MyDotNet\\DotNet5-REST\\Catalog\\obj\\",
+        "outputPath": "c:\\Code\\MyDotNet\\DotNet5-REST\\Catalog\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\x239757\\AppData\\Roaming\\NuGet\\NuGet.Config"
