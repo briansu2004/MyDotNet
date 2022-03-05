@@ -1,10 +1,9 @@
+
 using System;
 
-namespace Catalog.Entities
+namespace Catalog.Dtos
 {
-    // Record Types
-    // use for immutable objects
-    public record Item
+    public record ItemDto
     {
         // init only; no set
         public Guid Id { get; init; }
