@@ -121,3 +121,7 @@ Razor
 MVC
 
 the Repository Pattern, Dependency Injection, Entity Framework, Data Transfer Objects (DTOs), AutoMapper
+
+## C# lint
+
+StyleCop, Sonar, Resharper, Visual Studio and Roslyn
