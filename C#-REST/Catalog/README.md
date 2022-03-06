@@ -78,7 +78,10 @@ dotnet add package MongoDB.Driver
 docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo
 docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db -e MONGO_INITDB_ROOT_USERNAME=mongodbadmin -e MONGO_INITDB_ROOT_PASSWORD=Pass#word1 mongo
 docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db -e MONGO_INITDB_ROOT_USERNAME=mongodbadmin -e MONGO_INITDB_ROOT_PASSWORD=Pass#word1 --network=catalognetwork mongo
-docker run -it --rm --name -p 8080:80 -e MongoDbSettings:Host=mongo -e MongoDbSettings:Password=Pass#word1 --network=catalognetwork <dockerHubUser>/catalog:v1
+docker run -it --rm -p 8080:80 -e MongoDbSettings:Host=mongo -e MongoDbSettings:Password=Pass#word1 --network=catalognetwork catalog:v1
+docker tag catalog:v1 briansu2004/catalog:v1
+docker push briansu2004/catalog:v1
+docker run -it --rm -p 8080:80 -e MongoDbSettings:Host=mongo -e MongoDbSettings:Password=Pass#word1 --network=catalognetwork briansu2004/catalog:v1
 dotnet user-secrets init
 dotnet user-secrets set MongoDbSettings:Password Pass#word1
 dotnet add package AspNetCore.HealthChecks.MongoDb
@@ -107,6 +110,55 @@ docker logout
 
 ```dos
 ENTRYPOINT ["dotnet", "Catalog.dll"]
+```
+
+```
+C:\Code\MyDotNet\C#-REST\Catalog>docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: briansu2004
+Password:
+Login Succeeded
+
+Logging in with your password grants your terminal complete access to your account.
+For better security, log in with a limited-privilege personal access token. Learn more at https://docs.docker.com/go/access-tokens/
+```
+
+```
+C:\Code\MyDotNet\C#-REST\Catalog>docker push briansu2004/catalog:v1
+The push refers to repository [docker.io/briansu2004/catalog]
+f10a8b42819d: Pushed
+5f70bf18a086: Pushed
+550ef9826b5d: Pushed
+e75f20f772e5: Pushed
+90b1f0e23bf2: Pushed
+2d625df30d12: Pushed
+d40a5c453e9f: Pushed
+68a85fa9d77e: Mounted from library/mongo
+v1: digest: sha256:751e6a0187d5994106e530a4d07af8ea2d16fd5596a7d64579ed08addab18448 size: 1995
+```
+
+```
+C:\Code\MyDotNet\C#-REST\Catalog>docker run -it --rm -p 8080:80 -e MongoDbSettings:Host=mongo -e MongoDbSettings:Password=Pass#word1 --network=catalognetwork briansu2004/catalog:v1
+Unable to find image 'briansu2004/catalog:v1' locally
+v1: Pulling from briansu2004/catalog
+7c3b88808835: Already exists
+921b28e5fdff: Already exists
+d8e5d3ff6881: Already exists
+ac77651bb778: Already exists
+a72848626bb4: Already exists
+306c191e65f5: Already exists
+4f4fb700ef54: Already exists
+42d19a404bf5: Already exists
+Digest: sha256:751e6a0187d5994106e530a4d07af8ea2d16fd5596a7d64579ed08addab18448
+Status: Downloaded newer image for briansu2004/catalog:v1
+info: Microsoft.Hosting.Lifetime[0]
+      Now listening on: http://[::]:80
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /app
 ```
 
 ```dos
