@@ -164,6 +164,8 @@ info: Microsoft.Hosting.Lifetime[0]
 ```dos
 kubectl config current-context
 kubectl create secret generic catalog-secrets --from-literal=mongodb-password='Pass#word1'
+// kubectl delete secret catalog-secrets
+// not kubectl create secret generic catalog-secrets --from-literal=mongodb-password=Pass#word1
 kubectl apply -f .\catalog.yaml
 kubectl get deployments
 kubectl get pods
@@ -172,8 +174,13 @@ kubectl logs <pod>
 kubectl logs <pod> -f
 kubectl apply -f .\mongodb.yaml
 kubectl get statefulsets
+kubectl describe statefulset mongodb-statefulset
 kubectl delete pod <pod>
 kubectl scale deployments/catalog-deployment --replicas=3
+
+C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>k delete statefulset  mongodb-statefulset
+statefulset.apps "mongodb-statefulset" deleted
+
 ```
 
 ```
@@ -205,6 +212,53 @@ NAME                                  READY   STATUS    RESTARTS   AGE
 catalog-deployment-65c96d7d97-vnmj6   0/1     Running   0          13m
 mongodb-statefulset-0                 1/1     Running   0          32s
 ```
+
+```
+C:\Code\MyDotNet\C#-REST\Catalog>doskey k=kubectl $*
+
+C:\Code\MyDotNet\C#-REST\Catalog>k get pods
+NAME                                  READY   STATUS    RESTARTS   AGE
+catalog-deployment-65c96d7d97-vnmj6   0/1     Running   2          90m
+mongodb-statefulset-0                 1/1     Running   1          77m
+```
+
+```
+C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>k get deployment
+NAME                 READY   UP-TO-DATE   AVAILABLE   AGE
+catalog-deployment   0/1     1            0           131m
+
+C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>k delete deployment catalog-deployment
+deployment.apps "catalog-deployment" deleted
+
+C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>k get deployment
+No resources found in default namespace.
+
+C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>k get statefulset
+NAME                  READY   AGE
+mongodb-statefulset   1/1     120m
+
+C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>k delete statefulset  mongodb-statefulset
+statefulset.apps "mongodb-statefulset" deleted
+
+C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>k get statefulset
+No resources found in default namespace.
+```
+
+Finnally it works!
+
+Had to use his image:
+
+```
+  image: julioc/catalog:v1
+```
+
+```
+docker build -t briansu2004/catalog:v2 .
+docker login
+docker push briansu2004/catalog:v2
+```
+
+Postman header: untick "Connection: keep-alive"
 
 ## Log
 
