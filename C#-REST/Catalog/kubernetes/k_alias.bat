@@ -1,0 +1,3 @@
+@cls
+
+doskey k=kubectl $*

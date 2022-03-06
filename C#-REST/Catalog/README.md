@@ -80,6 +80,7 @@ docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db -e MONGO_
 docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db -e MONGO_INITDB_ROOT_USERNAME=mongodbadmin -e MONGO_INITDB_ROOT_PASSWORD=Pass#word1 --network=catalognetwork mongo
 docker run -it --rm -p 8080:80 -e MongoDbSettings:Host=mongo -e MongoDbSettings:Password=Pass#word1 --network=catalognetwork catalog:v1
 docker tag catalog:v1 briansu2004/catalog:v1
+docker build -t briansu2004/catalog:v3 .
 docker push briansu2004/catalog:v1
 docker run -it --rm -p 8080:80 -e MongoDbSettings:Host=mongo -e MongoDbSettings:Password=Pass#word1 --network=catalognetwork briansu2004/catalog:v1
 dotnet user-secrets init
@@ -111,6 +112,44 @@ docker logout
 ```dos
 ENTRYPOINT ["dotnet", "Catalog.dll"]
 ```
+
+Finnally it works!
+
+Had to use his image:
+
+```
+  image: julioc/catalog:v1
+```
+
+The root cause is the new docker image template from Microsoft has issues?
+
+```dos
+kubectl config current-context
+kubectl create secret generic catalog-secrets --from-literal=mongodb-password='Pass#word1'
+kubectl delete secret catalog-secrets
+kubectl apply -f .\catalog.yaml
+kubectl get deployments
+kubectl get pods
+kubectl get pods -w
+kubectl logs <pod>
+kubectl logs <pod> -f
+kubectl apply -f .\mongodb.yaml
+kubectl get statefulsets
+kubectl describe statefulset mongodb-statefulset
+kubectl delete pod <pod>
+kubectl scale deployments/catalog-deployment --replicas=3
+kubectl scale deployments/catalog-deployment --replicas=1
+```
+
+```
+docker build -t briansu2004/catalog:v2 .
+docker login
+docker push briansu2004/catalog:v2
+```
+
+Postman header: untick "Connection: keep-alive"
+
+### Output
 
 ```
 C:\Code\MyDotNet\C#-REST\Catalog>docker login
@@ -161,29 +200,10 @@ info: Microsoft.Hosting.Lifetime[0]
       Content root path: /app
 ```
 
-```dos
-kubectl config current-context
-kubectl create secret generic catalog-secrets --from-literal=mongodb-password='Pass#word1'
-// kubectl delete secret catalog-secrets
-// not kubectl create secret generic catalog-secrets --from-literal=mongodb-password=Pass#word1
-kubectl apply -f .\catalog.yaml
-kubectl get deployments
-kubectl get pods
-kubectl get pods -w
-kubectl logs <pod>
-kubectl logs <pod> -f
-kubectl apply -f .\mongodb.yaml
-kubectl get statefulsets
-kubectl describe statefulset mongodb-statefulset
-kubectl delete pod <pod>
-kubectl scale deployments/catalog-deployment --replicas=3
-
+```
 C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>k delete statefulset  mongodb-statefulset
 statefulset.apps "mongodb-statefulset" deleted
 
-```
-
-```
 C:\Code\MyDotNet\C#-REST\Catalog>kubectl create secret generic catalog-secrets --from-literal=mongodb-password='Pass#word1'
 secret/catalog-secrets created
 
@@ -243,22 +263,6 @@ statefulset.apps "mongodb-statefulset" deleted
 C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>k get statefulset
 No resources found in default namespace.
 ```
-
-Finnally it works!
-
-Had to use his image:
-
-```
-  image: julioc/catalog:v1
-```
-
-```
-docker build -t briansu2004/catalog:v2 .
-docker login
-docker push briansu2004/catalog:v2
-```
-
-Postman header: untick "Connection: keep-alive"
 
 ## Log
 

@@ -1,15 +1,13 @@
-FROM mcr.microsoft.com/dotnet/aspnet:5.0-focal AS base
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
 EXPOSE 80
 
-ENV ASPNETCORE_URLS=http://+:80
-
-FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["Catalog.csproj", "./"]
 RUN dotnet restore "Catalog.csproj"
 COPY . .
-RUN dotnet publish "Catalog.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Catalog.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
