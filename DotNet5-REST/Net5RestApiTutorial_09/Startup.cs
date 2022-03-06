@@ -1,16 +1,21 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
 using System.Text.Json;
+using System.Threading.Tasks;
 using Catalog.Repositories;
 using Catalog.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
@@ -35,22 +40,17 @@ namespace Catalog
             BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
             var mongoDbSettings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
 
-            services.AddSingleton<IMongoClient>(ServiceProvider =>
+            services.AddSingleton<IMongoClient>(serviceProvider =>
             {
-                //var settings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
-
-                return new MongoClient(mongoDbSettings.CollectionString);
+                return new MongoClient(mongoDbSettings.ConnectionString);
             });
 
-            //services.AddSingleton<IItemsRepository, InMemItemsRepository>();
             services.AddSingleton<IItemsRepository, MongoDbItemsRepository>();
 
-            //services.AddControllers();
             services.AddControllers(options =>
             {
                 options.SuppressAsyncSuffixInActionNames = false;
             });
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Catalog", Version = "v1" });
@@ -58,7 +58,7 @@ namespace Catalog
 
             services.AddHealthChecks()
                 .AddMongoDb(
-                    mongoDbSettings.CollectionString,
+                    mongoDbSettings.ConnectionString,
                     name: "mongodb",
                     timeout: TimeSpan.FromSeconds(3),
                     tags: new[] { "ready" });
@@ -86,6 +86,7 @@ namespace Catalog
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+
                 endpoints.MapHealthChecks("/health/ready", new HealthCheckOptions
                 {
                     Predicate = (check) => check.Tags.Contains("ready"),
@@ -109,6 +110,7 @@ namespace Catalog
                         await context.Response.WriteAsync(result);
                     }
                 });
+
                 endpoints.MapHealthChecks("/health/live", new HealthCheckOptions
                 {
                     Predicate = (_) => false

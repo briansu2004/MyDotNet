@@ -170,9 +170,40 @@ kubectl get pods
 kubectl get pods -w
 kubectl logs <pod>
 kubectl logs <pod> -f
+kubectl apply -f .\mongodb.yaml
 kubectl get statefulsets
 kubectl delete pod <pod>
 kubectl scale deployments/catalog-deployment --replicas=3
+```
+
+```
+C:\Code\MyDotNet\C#-REST\Catalog>kubectl create secret generic catalog-secrets --from-literal=mongodb-password='Pass#word1'
+secret/catalog-secrets created
+
+C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>kubectl apply -f .\catalog.yaml
+deployment.apps/catalog-deployment created
+service/catalog-service created
+
+C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>kubectl get deployments
+NAME                 READY   UP-TO-DATE   AVAILABLE   AGE
+catalog-deployment   0/1     1            0           23s
+
+C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>kubectl get pods
+NAME                                  READY   STATUS    RESTARTS   AGE
+catalog-deployment-65c96d7d97-vnmj6   0/1     Running   0          57s
+
+C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>kubectl apply -f .\mongodb.yaml
+statefulset.apps/mongodb-statefulset created
+service/mongodb-service created
+
+C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>kubectl get statefulsets
+NAME                  READY   AGE
+mongodb-statefulset   1/1     14s
+
+C:\Code\MyDotNet\C#-REST\Catalog\kubernetes>kubectl get pods
+NAME                                  READY   STATUS    RESTARTS   AGE
+catalog-deployment-65c96d7d97-vnmj6   0/1     Running   0          13m
+mongodb-statefulset-0                 1/1     Running   0          32s
 ```
 
 ## Log
@@ -424,6 +455,18 @@ log  : Restored C:\Code\MyDotNet\DotNet5-REST\Catalog\Catalog.csproj (in 1.99 se
 ```dos
 C:\Code\MyDotNet\DotNet5-REST\Catalog>kubectl config current-context
 gke_cio-gke-private-yul-001-9ed5d0_northamerica-northeast1_private-yul-np-001
+
+C:\Code\MyDotNet\C#-REST\Catalog>kubectl config get-contexts
+CURRENT   NAME              CLUSTER            AUTHINFO                  NAMESPACE
+*         docker-desktop    docker-desktop    docker-desktop
+          pr-001   pr-001   pr-001   cust-blah
+          np-001   np-001   np-001   cust-blah
+
+C:\Code\MyDotNet\C#-REST\Catalog>kubectl config use-context docker-desktop
+Switched to context "docker-desktop".
+
+C:\Code\MyDotNet\C#-REST\Catalog>kubectl config current-context
+docker-desktop
 ```
 
 ## Notes
