@@ -2,5 +2,25 @@
   "dotnet-test-explorer.enableTelemetry": false,
   "dotnet-test-explorer.autoExpandTree": true,
   "dotnet-test-explorer.autoWatch": true,
-  "dotnet-test-explorer.testProjectPath": "**/*Tests.csproj"
+  "dotnet-test-explorer.testProjectPath": "**/*Tests.csproj",
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#72245c",
+    "activityBar.activeBorder": "#627926",
+    "activityBar.background": "#72245c",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#627926",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "sash.hoverBorder": "#72245c",
+    "statusBar.background": "#4b183d",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#72245c",
+    "statusBarItem.remoteBackground": "#4b183d",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#4b183d",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#4b183d99",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#4b183d"
 }

@@ -1,20 +1,27 @@
-# .NET 5/6 REST API - Build From Scratch With C\#
+# .NET 5 REST API - from Scratch with C\#
 
-.NET REST API - Build From Scratch With C#
+.NET REST API - Build from Scratch with C#
 
 ## Keywords
+
+LINQ
 
 entity, repository, contoller
 
 C# record types
 
+DI / Dependency Injection
+
 in-memory repositories
+
+MongoDB repositories
+
+BsonSerializer
+BsonType
 
 init-only properties
 
 Target-typed new expression
-
-Dependency Injection
 
 DTO (Data Transfer Object)
 
@@ -28,18 +35,17 @@ Docker image
 Docker container
 Docker engine
 
-BsonSerializer
-BsonType
+Kubernetes
+
+kubectl
+deployment
+StatefulSet
 
 Asynchronous Programming
+
 async & await
 
-```dos
-using System.Threading.Tasks;
-
-await Task.FromResult(...);
-await Task.CompleteTask;
-```
+Task
 
 Secrets
 
@@ -65,9 +71,7 @@ Assertions with FluentAssertions
 
 [Fact]
 
-AAA pattern:
-
-Arrange -> Act -> Assert
+AAA pattern: Arrange -> Act -> Assert
 
 Fluent interface
 
@@ -92,6 +96,13 @@ dotnet restore "Catalog.Api.csproj"
 dotnet build "Catalog.Api.csproj" -c Release -o /app/build
 dotnet publish "Catalog.Api.csproj" -c Release -o /app/publish
 docker build -t catalog:v1 .
+```
+
+```dos
+using System.Threading.Tasks;
+
+await Task.FromResult(...);
+await Task.CompleteTask;
 ```
 
 ```dos
