@@ -8,11 +8,11 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
-using Play.Catalog.Services.Entities;
-using Play.Catalog.Services.Repositories;
-using Play.Catalog.Services.Settings;
+using Play.Catalog.Service.Entities;
+using Play.Catalog.Service.Repositories;
+using Play.Catalog.Service.Settings;
 
-namespace Play.Catalog.Services
+namespace Play.Catalog.Service
 {
     public class Startup
     {
@@ -28,40 +28,19 @@ namespace Play.Catalog.Services
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
-            // BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
-
-            // serviceSettings = Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
-
-            // services.AddMongo().AddMongoRepository<Item>("items");
-
             serviceSettings = Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
 
             services.AddMongo()
                     .AddMongoRepository<Item>("items");
 
-
-            // services.AddSingleton(serviceProvider =>
-            // {
-            //     var mongoDbSettings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
-            //     var mongoClient = new MongoClient(mongoDbSettings.ConnectionString);
-            //     return mongoClient.GetDatabase(serviceSettings.ServiceName);
-            // });
-
-            //services.AddSingleton<IItemsRepository, ItemsRepository>();
-            services.AddSingleton<IRepository<Item>>(serviceProvider =>
-            {
-                var database = serviceProvider.GetService<IMongoDatabase>();
-                return new MongoRepository<Item>(database, "items");
-            });
-
             services.AddControllers(options =>
             {
                 options.SuppressAsyncSuffixInActionNames = false;
             });
+
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Play.Catalog.Services", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Play.Catalog.Service", Version = "v1" });
             });
         }
 
@@ -72,7 +51,7 @@ namespace Play.Catalog.Services
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Play.Catalog.Services v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Play.Catalog.Service v1"));
             }
 
             app.UseHttpsRedirection();
