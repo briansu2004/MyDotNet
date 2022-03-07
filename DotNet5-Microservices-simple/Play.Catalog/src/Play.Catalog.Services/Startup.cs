@@ -8,6 +8,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
+using Play.Catalog.Services.Entities;
 using Play.Catalog.Services.Repositories;
 using Play.Catalog.Services.Settings;
 
@@ -39,7 +40,12 @@ namespace Play.Catalog.Services
                 return mongoClient.GetDatabase(serviceSettings.ServiceName);
             });
 
-            services.AddSingleton<IItemsRepository, ItemsRepository>();
+            //services.AddSingleton<IItemsRepository, ItemsRepository>();
+            services.AddSingleton<IRepository<Item>>(serviceProvider =>
+            {
+                var database = serviceProvider.GetService<IMongoDatabase>();
+                return new MongoRepository<Item>(database, "items");
+            });
 
             services.AddControllers(options =>
             {

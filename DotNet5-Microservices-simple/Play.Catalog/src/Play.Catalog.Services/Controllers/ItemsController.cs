@@ -20,9 +20,9 @@ namespace Play.Catalog.Services.Controllers
         //     new ItemDto(Guid.NewGuid(), "Brozen", "Deals", 20, DateTimeOffset.UtcNow)
         // };
         //private readonly ItemsRepository itemsRepository = new();
-        private readonly IItemsRepository itemsRepository;
+        private readonly IRepository<Item> itemsRepository;
 
-        public ItemsController(IItemsRepository itemsRepository)
+        public ItemsController(IRepository<Item> itemsRepository)
         {
             this.itemsRepository = itemsRepository;
         }

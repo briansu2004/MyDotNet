@@ -46,6 +46,34 @@ local secrets
 
 extract interface
 
+https://localhost:5001/swagger/v1/swagger.json
+
+import it to Postman!
+
+launch.json
+
+Comment out this section will prevent a new brower open when F5
+
+```
+      // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
+      // "serverReadyAction": {
+      //     "action": "openExternally",
+      //     "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+      // },
+```
+
+Running common code from NuGet
+
+Don't Repeat Yourself (DRY)
+
+Microservices should be independent of each other
+
+NuGet is the package manager for .Net
+
+A NuGet package is a single ZIP file (.nupkg) that contains files to share with others
+
+
+
 ## Commands
 
 ```
