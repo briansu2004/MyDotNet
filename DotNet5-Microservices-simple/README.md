@@ -72,8 +72,6 @@ NuGet is the package manager for .Net
 
 A NuGet package is a single ZIP file (.nupkg) that contains files to share with others
 
-
-
 ## Commands
 
 ```
@@ -110,11 +108,17 @@ docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo
 ```
 
 ```
-
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\
+md Play.Common
+cd Play.Common
+md src
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src
+dotnet new classlib -n Play.Common --framework net5.0
 ```
 
 ```
-
+dotnet new classlib -n Play.Common --uninstall
+dotnet new classlib -n Play.Common --uninstall --force
 ```
 
 ```
@@ -192,6 +196,32 @@ Play.Catalog.Services.csproj
   <ItemGroup>
     <PackageReference Include="MongoDB.driver" Version="2.14.1" />
   </ItemGroup>
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src>dotnet new classlib -n Play.Common
+The template "Class library" was created successfully.
+
+Processing post-creation actions...
+Running 'dotnet restore' on Play.Common\Play.Common.csproj...
+  Determining projects to restore...
+  Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Common\Play.Common.csproj (in 104 ms).
+Restore succeeded.
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src>dotnet new classlib -n Play.Common --uninstall --force
+The template "Class library" was created successfully.
+
+Processing post-creation actions...
+Running 'dotnet restore' on Play.Common\Play.Common.csproj...
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+Restore succeeded.
+```
+
+```
+
 ```
 
 ```
