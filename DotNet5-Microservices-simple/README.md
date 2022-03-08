@@ -50,18 +50,6 @@ https://localhost:5001/swagger/v1/swagger.json
 
 import it to Postman!
 
-launch.json
-
-Comment out this section will prevent a new brower open when F5
-
-```
-      // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
-      // "serverReadyAction": {
-      //     "action": "openExternally",
-      //     "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
-      // },
-```
-
 Running common code from NuGet
 
 Don't Repeat Yourself (DRY)
@@ -72,17 +60,23 @@ NuGet is the package manager for .Net
 
 A NuGet package is a single ZIP file (.nupkg) that contains files to share with others
 
-VSCode -> View -> Command Palette -> .Net: Generate Assets for Build and Debug
-
-VSCode YAML tip:
-
-Settings -> render whitespace
-
 Set timouts for inter service communication
 
 implement retries with exponential backoff
 
+Performs call retries a certain number of times with a longer wait between each retry
+
 implement the circuit breaker pattern
+
+Microservices 2 communcation sytles:
+
+Synchronous communcation style vs Asynchronous communcation style
+
+In a distributed system, whenever a service makes a synchronous request to another service, there is an ever-present risk of partial failure.
+
+We must design our services to be resilient to those partial failures.
+
+A service client should be designed not to block indefinitely and use timeouts.
 
 ## Commands
 
@@ -527,6 +521,52 @@ log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src
 
 Cannot implicitly convert type 'Microsoft.AspNetCore.Mvc.NotFoundResult' to 'Play.Catalog.Services.ItemDto' [Play.Catalog.Services]
 
+## Tips
+
+### VSCode
+
+#### Prevent to popup a new brower when F5
+
+launch.json
+
+Comment out this section will prevent a new brower popup when F5
+
+```
+      // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
+      // "serverReadyAction": {
+      //     "action": "openExternally",
+      //     "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+      // },
+```
+
+#### Auto generate .Net assets
+
+VSCode -> View -> Command Palette -> .Net: Generate Assets for Build and Debug
+
+#### VSCode YAML
+
+Settings -> render whitespace
+
+#### OmniSharp
+
+VSCode -> View -> Command Palette -> OmniSharp: ...
+
+VSCode -> View -> Command Palette -> OmniSharp: Restart OmniSharp
+
+### Postman
+
+### {{$guid}} is a built-in function can be used in POST etc.
+
+i.e.
+
+```
+"userId": "{{$guid}}",
+```
+
+### Postman can import Swagger JSON
+
+It is very easy and cool.
+
 ## Troubleshooting
 
 ### undefined /swagger/v1/swagger.json
@@ -536,3 +576,7 @@ https://stackoverflow.com/questions/56859604/swagger-not-loading-failed-to-load-
 Simply navigate to https://localhost:{PortNo}/swagger/v1/swagger.json and get much more details about the error message.
 
 Root cause: forgot the annoation [HttpGet] [HttpPost]
+
+### Postman baseURL
+
+Can't add "/" at the end by default

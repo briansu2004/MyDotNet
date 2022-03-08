@@ -49,3 +49,7 @@ typings
 
 .fake
 .ionide
+
+# .net
+bin/
+obj/
