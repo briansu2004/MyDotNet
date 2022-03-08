@@ -78,6 +78,36 @@ We must design our services to be resilient to those partial failures.
 
 A service client should be designed not to block indefinitely and use timeouts.
 
+The recommended approach for retries with exponential backoff is to take advantage of more advanced .NET libraries like the open-source Polly library.
+
+Polly is a .NET resilience and transient-fault-handling library that allows developers to express policies such as Retry, Circuit Breaker, Timeout, Bulkhead Isolation, Rate-limiting and Fallback in a fluent and thread-safe manner.
+
+StartUp.cs
+
+```
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddHttpClient<CatalogClient>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:5001");
+            })
+            .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(1));
+```
+
+Add a jitter strategy to the retry policy
+
+A regular Retry policy can affect your system in cases of high concurrency and scalability and under high contention. To overcome peaks of similar retries coming from many clients in partial outages, a good workaround is to add a jitter strategy to the retry algorithm/policy. This strategy can improve the overall performance of the end-to-end system. As recommended in Polly: Retry with Jitter, a good jitter strategy can be implemented by smooth and evenly distributed retry intervals applied with a well-controlled median initial retry delay on an exponential backoff. This approach helps to spread out the spikes when the issue arises. The principle is illustrated by the following example:
+
+```
+var delay = Backoff.DecorrelatedJitterBackoffV2(medianFirstRetryDelay: TimeSpan.FromSeconds(1), retryCount: 5);
+
+var retryPolicy = Policy
+    .Handle<FooException>()
+    .WaitAndRetryAsync(delay);
+```
+
+Resource exhaustion
+
 ## Commands
 
 ```
@@ -186,11 +216,12 @@ dotnet add package Play.Common
 ```
 
 ```
-
+dotnet run
 ```
 
 ```
-
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service
+dotnet add package Microsoft.Extensions.Http.Polly
 ```
 
 ```
@@ -507,6 +538,59 @@ info : PackageReference for package 'Play.Common' version '1.0.0' added to file 
 info : Committing restore...
 info : Writing assets file to disk. Path: C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\obj\project.assets.json
 log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj (in 260 ms).
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service>dotnet add package Microsoft.Extensions.Http.Polly
+  Determining projects to restore...
+  Writing C:\Users\x239757\AppData\Local\Temp\tmp2209.tmp
+info : Adding PackageReference for package 'Microsoft.Extensions.Http.Polly' into project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj'.
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/microsoft.extensions.http.polly/index.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/microsoft.extensions.http.polly/index.json 708ms
+info : Restoring packages for C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj...
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.http.polly/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.http.polly/index.json 166ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.http.polly/6.0.3/microsoft.extensions.http.polly.6.0.3.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.http.polly/6.0.3/microsoft.extensions.http.polly.6.0.3.nupkg 53ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.http/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/polly/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/polly.extensions.http/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.http/index.json 164ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.http/6.0.0/microsoft.extensions.http.6.0.0.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.http/6.0.0/microsoft.extensions.http.6.0.0.nupkg 47ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json 95ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/6.0.0/microsoft.extensions.logging.6.0.0.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/polly.extensions.http/index.json 464ms
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/6.0.0/microsoft.extensions.logging.6.0.0.nupkg 48ms
+info :   GET https://api.nuget.org/v3-flatcontainer/polly.extensions.http/3.0.0/polly.extensions.http.3.0.0.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/polly/index.json 506ms
+info :   GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/polly/7.2.2/polly.7.2.2.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/polly.extensions.http/3.0.0/polly.extensions.http.3.0.0.nupkg 49ms
+info :   OK https://api.nuget.org/v3-flatcontainer/polly/7.2.2/polly.7.2.2.nupkg 43ms
+info :   OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json 75ms
+info :   GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg 35ms
+info : Installing System.Diagnostics.DiagnosticSource 6.0.0.
+info : Installing Microsoft.Extensions.Logging 6.0.0.
+info : Installing Microsoft.Extensions.Http 6.0.0.
+info : Installing Polly 7.2.2.
+info : Installing Polly.Extensions.Http 3.0.0.
+info : Installing Microsoft.Extensions.Http.Polly 6.0.3.
+info : Package 'Microsoft.Extensions.Http.Polly' is compatible with all the specified frameworks in project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj'.
+info : PackageReference for package 'Microsoft.Extensions.Http.Polly' version '6.0.3' added to file 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj'.
+info : Committing restore...
+info : Writing assets file to disk. Path: C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\obj\project.assets.json
+log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj (in 2.14 sec).
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
