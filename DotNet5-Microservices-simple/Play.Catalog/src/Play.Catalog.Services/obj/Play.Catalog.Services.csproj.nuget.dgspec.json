@@ -4,14 +4,14 @@
     "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Services\\Play.Catalog.Services.csproj": {}
   },
   "projects": {
-    "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Services\\Play.Catalog.Services.csproj": {
+    "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Contracts\\Play.Catalog.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Services\\Play.Catalog.Services.csproj",
-        "projectName": "Play.Catalog.Services",
-        "projectPath": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Services\\Play.Catalog.Services.csproj",
+        "projectUniqueName": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Contracts\\Play.Catalog.Contracts.csproj",
+        "projectName": "Play.Catalog.Contracts",
+        "projectPath": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Contracts\\Play.Catalog.Contracts.csproj",
         "packagesPath": "C:\\Users\\x239757\\.nuget\\packages\\",
-        "outputPath": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Services\\obj\\",
+        "outputPath": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\x239757\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,7 +38,72 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Services\\Play.Catalog.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Services\\Play.Catalog.Services.csproj",
+        "projectName": "Play.Catalog.Services",
+        "projectPath": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Services\\Play.Catalog.Services.csproj",
+        "packagesPath": "C:\\Users\\x239757\\.nuget\\packages\\",
+        "outputPath": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\x239757\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Contracts\\Play.Catalog.Contracts.csproj": {
+                "projectPath": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Catalog\\src\\Play.Catalog.Contracts\\Play.Catalog.Contracts.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
+            "MassTransit.AspNetCore": {
+              "target": "Package",
+              "version": "[7.3.1, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[7.3.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.0, )",

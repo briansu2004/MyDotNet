@@ -1,3 +1,5 @@
+using MassTransit;
+using MassTransit.Definition;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -6,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
 using Play.Catalog.Services.Entities;
+using Play.Catalog.Services.Settings;
 using Play.Common;
 using Play.Common.MongoDB;
 using Play.Common.Services.Settings;
@@ -38,6 +41,17 @@ namespace Play.Catalog.Services
             services.AddMongo()
                     .AddMongoRepository<Item>("items");
 
+            services.AddMassTransit(x =>
+           {
+               x.UsingRabbitMq((context, configurator) =>
+               {
+                   var rabbitMQSettings = Configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
+                   configurator.Host(rabbitMQSettings.Host);
+                   configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceSettings.ServiceName, false));
+               });
+           });
+
+            services.AddMassTransitHostedService();
 
             // services.AddSingleton(serviceProvider =>
             // {

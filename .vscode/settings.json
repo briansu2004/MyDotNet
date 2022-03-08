@@ -1,3 +1,23 @@
 {
-    "vscode-corda.isCordaProject": false
+  "vscode-corda.isCordaProject": false,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#ee70d3",
+    "activityBar.activeBorder": "#5c720e",
+    "activityBar.background": "#ee70d3",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#5c720e",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "sash.hoverBorder": "#ee70d3",
+    "statusBar.background": "#e843c5",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#dd1bb4",
+    "statusBarItem.remoteBackground": "#e843c5",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#e843c5",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#e843c599",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#e843c5"
 }

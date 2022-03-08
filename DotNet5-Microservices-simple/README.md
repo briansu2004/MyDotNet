@@ -108,6 +108,37 @@ var retryPolicy = Policy
 
 Resource exhaustion
 
+Using message broker in the Asynchronous communcation style
+
+- Data in eventually consistent
+- Preserves microservice autonomy
+- Removes inter-service latency
+
+Implement async communication with RabbitMQ
+
+RabbitMQ is a ligheweught message broker that supports AMQP protocol
+
+MassTransit is free software/open-source .NET-based Enterprise Service Bus software that helps .NET developers route messages over RabbitMQ, Azure Service Bus, SQS, and ActiveMQ service busses. It supports multicast, versioning, encryption, sagas, retries, transactions, distributed systems and other features.
+
+KebabCaseEndpointNameFormatter
+
+```
+dbug: MassTransit.Registration.BusDepot[0]
+      Starting bus instances: IBus
+dbug: MassTransit[0]
+      Starting bus: rabbitmq://localhost/
+dbug: MassTransit[0]
+      Connect: localhost:5672/
+dbug: MassTransit[0]
+      Connected: localhost:5672/ (address: amqp://localhost:5672, local: 55063)
+```
+
+RabbitMQ
+
+http://localhost:15672
+
+guest | guest
+
 ## Commands
 
 ```
@@ -222,6 +253,71 @@ dotnet run
 ```
 cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service
 dotnet add package Microsoft.Extensions.Http.Polly
+```
+
+```
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src>
+dotnet new classlib -n Play.Catalog.Contracts
+```
+
+if created in error, just remove the folder and re-create.
+
+```
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services
+dotnet add reference ..\Play.Catalog.Contracts\Play.Catalog.Contracts.csproj
+```
+
+```
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services
+dotnet add package MassTransit.AspNetCore
+dotnet add package MassTransit.RabbitMQ
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services>dotnet run
+Building...
+dbug: MassTransit.Registration.BusDepot[0]
+      Starting bus instances: IBus
+dbug: MassTransit[0]
+      Starting bus: rabbitmq://localhost/
+dbug: MassTransit[0]
+      Connect: localhost:5672/
+dbug: MassTransit[0]
+      Connected: localhost:5672/ (address: amqp://localhost:5672, local: 55063)
+info: MassTransit[0]
+      Bus started: rabbitmq://localhost/
+dbug: MassTransit[0]
+      Endpoint Ready: rabbitmq://localhost/L113220_PlayCatalogServices_bus_inzoyy8jqzonzaedbdpynisbri?temporary=true
+info: Microsoft.Hosting.Lifetime[0]
+      Now listening on: https://localhost:5001
+info: Microsoft.Hosting.Lifetime[0]
+      Now listening on: http://localhost:5000
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
@@ -583,6 +679,246 @@ info : PackageReference for package 'Microsoft.Extensions.Http.Polly' version '6
 info : Committing restore...
 info : Writing assets file to disk. Path: C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\obj\project.assets.json
 log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj (in 2.14 sec).
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src>dotnet new classlib -n Play.Catalog.Contracts
+The template "Class library" was created successfully.
+
+Processing post-creation actions...
+Running 'dotnet restore' on Play.Catalog.Contracts\Play.Catalog.Contracts.csproj...
+  Determining projects to restore...
+  Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Contracts\Play.Catalog.Contracts.csproj (in 67 ms).
+Restore succeeded.
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services>dotnet add reference ..\Play.Catalog.Contracts\Play.Catalog.Contracts.csproj
+Reference `..\Play.Catalog.Contracts\Play.Catalog.Contracts.csproj` added to the project.
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services>dotnet add package MassTransit.AspNetCore
+  Determining projects to restore...
+  Writing C:\Users\x239757\AppData\Local\Temp\tmpE632.tmp
+info : Adding PackageReference for package 'MassTransit.AspNetCore' into project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj'.
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/index.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/index.json 140ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/5.1.5.1690-develop/5.2.4-develop.1858.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/5.1.5.1690-develop/5.2.4-develop.1858.json 156ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/5.2.4-develop.1861/5.5.2-develop.2037.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/5.2.4-develop.1861/5.5.2-develop.2037.json 144ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/5.5.2-develop.2038/6.0.0-develop.2222.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/5.5.2-develop.2038/6.0.0-develop.2222.json 137ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/6.0.0-develop.2229/6.2.0-develop.2418.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/6.0.0-develop.2229/6.2.0-develop.2418.json 55ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/6.2.0/6.2.6-develop.2651.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/6.2.0/6.2.6-develop.2651.json 147ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/6.2.6-develop.2659/7.0.3-develop.2889.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/6.2.6-develop.2659/7.0.3-develop.2889.json 59ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/7.0.3-develop.2891/7.1.0-develop.3129.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/7.0.3-develop.2891/7.1.0-develop.3129.json 138ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/7.1.0-develop.3133/7.1.8-develop.30.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/7.1.0-develop.3133/7.1.8-develop.30.json 117ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/7.1.8-develop.33/7.2.2-develop.192.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/7.1.8-develop.33/7.2.2-develop.192.json 72ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/7.2.2-develop.197/7.3.1.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.aspnetcore/page/7.2.2-develop.197/7.3.1.json 125ms
+info : Restoring packages for C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj...
+info :   GET https://api.nuget.org/v3-flatcontainer/masstransit.aspnetcore/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/masstransit.aspnetcore/index.json 62ms
+info :   GET https://api.nuget.org/v3-flatcontainer/masstransit.aspnetcore/7.3.1/masstransit.aspnetcore.7.3.1.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/masstransit.aspnetcore/7.3.1/masstransit.aspnetcore.7.3.1.nupkg 52ms
+info :   GET https://api.nuget.org/v3-flatcontainer/masstransit.extensions.dependencyinjection/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/masstransit/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.diagnostics.healthchecks/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.hosting.abstractions/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/masstransit.extensions.dependencyinjection/index.json 71ms
+info :   GET https://api.nuget.org/v3-flatcontainer/masstransit.extensions.dependencyinjection/7.3.1/masstransit.extensions.dependencyinjection.7.3.1.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/masstransit.extensions.dependencyinjection/7.3.1/masstransit.extensions.dependencyinjection.7.3.1.nupkg 55ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection.abstractions/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/masstransit/index.json 198ms
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.diagnostics.healthchecks/index.json 216ms
+info :   GET https://api.nuget.org/v3-flatcontainer/masstransit/7.3.1/masstransit.7.3.1.nupkg
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.diagnostics.healthchecks/3.1.18/microsoft.extensions.diagnostics.healthchecks.3.1.18.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection.abstractions/index.json 69ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection.abstractions/2.1.1/microsoft.extensions.dependencyinjection.abstractions.2.1.1.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.hosting.abstractions/index.json 265ms
+info :   OK https://api.nuget.org/v3-flatcontainer/masstransit/7.3.1/masstransit.7.3.1.nupkg 52ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.hosting.abstractions/3.1.18/microsoft.extensions.hosting.abstractions.3.1.18.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.diagnostics.healthchecks/3.1.18/microsoft.extensions.diagnostics.healthchecks.3.1.18.nupkg 58ms
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection.abstractions/2.1.1/microsoft.extensions.dependencyinjection.abstractions.2.1.1.nupkg 45ms
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.hosting.abstractions/3.1.18/microsoft.extensions.hosting.abstractions.3.1.18.nupkg 47ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.diagnostics.healthchecks.abstractions/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.options/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.abstractions/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection.abstractions/3.1.18/microsoft.extensions.dependencyinjection.abstractions.3.1.18.nupkg
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.fileproviders.abstractions/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging.abstractions/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.diagnostics.healthchecks.abstractions/index.json 78ms
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.options/index.json 76ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.options/3.1.18/microsoft.extensions.options.3.1.18.nupkg
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.diagnostics.healthchecks.abstractions/3.1.18/microsoft.extensions.diagnostics.healthchecks.abstractions.3.1.18.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.abstractions/index.json 76ms
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.diagnostics.healthchecks.abstractions/3.1.18/microsoft.extensions.diagnostics.healthchecks.abstractions.3.1.18.nupkg 44ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.abstractions/3.1.18/microsoft.extensions.configuration.abstractions.3.1.18.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.options/3.1.18/microsoft.extensions.options.3.1.18.nupkg 50ms
+info :   GET https://api.nuget.org/v3-flatcontainer/automatonymous/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.bcl.asyncinterfaces/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/newid/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.primitives/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json.bson/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/system.reflection.emit/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/system.reflection.emit.lightweight/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/system.text.json/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/system.threading.channels/index.json
+info :   GET https://api.nuget.org/v3-flatcontainer/system.valuetuple/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.abstractions/3.1.18/microsoft.extensions.configuration.abstractions.3.1.18.nupkg 67ms
+info :   OK https://api.nuget.org/v3-flatcontainer/automatonymous/index.json 77ms
+info :   GET https://api.nuget.org/v3-flatcontainer/automatonymous/5.1.3/automatonymous.5.1.3.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.bcl.asyncinterfaces/index.json 81ms
+info :   OK https://api.nuget.org/v3-flatcontainer/newid/index.json 79ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.bcl.asyncinterfaces/5.0.0/microsoft.bcl.asyncinterfaces.5.0.0.nupkg
+info :   GET https://api.nuget.org/v3-flatcontainer/newid/3.0.3/newid.3.0.3.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection.abstractions/3.1.18/microsoft.extensions.dependencyinjection.abstractions.3.1.18.nupkg 169ms
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.bcl.asyncinterfaces/5.0.0/microsoft.bcl.asyncinterfaces.5.0.0.nupkg 86ms
+info :   OK https://api.nuget.org/v3-flatcontainer/newid/3.0.3/newid.3.0.3.nupkg 91ms
+info :   OK https://api.nuget.org/v3-flatcontainer/automatonymous/5.1.3/automatonymous.5.1.3.nupkg 98ms
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.fileproviders.abstractions/index.json 275ms
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging.abstractions/index.json 273ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.fileproviders.abstractions/3.1.18/microsoft.extensions.fileproviders.abstractions.3.1.18.nupkg
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging.abstractions/3.1.18/microsoft.extensions.logging.abstractions.3.1.18.nupkg
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging.abstractions/2.1.1/microsoft.extensions.logging.abstractions.2.1.1.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.primitives/index.json 224ms
+info :   OK https://api.nuget.org/v3-flatcontainer/newtonsoft.json.bson/index.json 224ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.primitives/3.1.18/microsoft.extensions.primitives.3.1.18.nupkg
+info :   GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json.bson/1.0.2/newtonsoft.json.bson.1.0.2.nupkg
+info :   GET https://api.nuget.org/v3-flatcontainer/greenpipes/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging.abstractions/3.1.18/microsoft.extensions.logging.abstractions.3.1.18.nupkg 46ms
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.fileproviders.abstractions/3.1.18/microsoft.extensions.fileproviders.abstractions.3.1.18.nupkg 53ms
+info :   OK https://api.nuget.org/v3-flatcontainer/newtonsoft.json/index.json 260ms
+info :   OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/index.json 255ms
+info :   GET https://api.nuget.org/v3-flatcontainer/newtonsoft.json/12.0.1/newtonsoft.json.12.0.1.nupkg
+info :   GET https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/4.7.1/system.diagnostics.diagnosticsource.4.7.1.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging.abstractions/2.1.1/microsoft.extensions.logging.abstractions.2.1.1.nupkg 74ms
+info :   OK https://api.nuget.org/v3-flatcontainer/newtonsoft.json.bson/1.0.2/newtonsoft.json.bson.1.0.2.nupkg 49ms
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.primitives/3.1.18/microsoft.extensions.primitives.3.1.18.nupkg 54ms
+info :   OK https://api.nuget.org/v3-flatcontainer/newtonsoft.json/12.0.1/newtonsoft.json.12.0.1.nupkg 37ms
+info :   OK https://api.nuget.org/v3-flatcontainer/system.reflection.emit.lightweight/index.json 292ms
+info :   GET https://api.nuget.org/v3-flatcontainer/system.reflection.emit.lightweight/4.7.0/system.reflection.emit.lightweight.4.7.0.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/system.threading.channels/index.json 292ms
+info :   OK https://api.nuget.org/v3-flatcontainer/system.text.json/index.json 299ms
+info :   GET https://api.nuget.org/v3-flatcontainer/system.threading.channels/4.7.1/system.threading.channels.4.7.1.nupkg
+info :   GET https://api.nuget.org/v3-flatcontainer/system.text.json/5.0.2/system.text.json.5.0.2.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/system.diagnostics.diagnosticsource/4.7.1/system.diagnostics.diagnosticsource.4.7.1.nupkg 42ms
+info :   OK https://api.nuget.org/v3-flatcontainer/system.reflection.emit/index.json 314ms
+info :   GET https://api.nuget.org/v3-flatcontainer/system.reflection.emit/4.7.0/system.reflection.emit.4.7.0.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/system.reflection.emit.lightweight/4.7.0/system.reflection.emit.lightweight.4.7.0.nupkg 42ms
+info :   OK https://api.nuget.org/v3-flatcontainer/system.threading.channels/4.7.1/system.threading.channels.4.7.1.nupkg 38ms
+info :   OK https://api.nuget.org/v3-flatcontainer/system.reflection.emit/4.7.0/system.reflection.emit.4.7.0.nupkg 36ms
+info :   OK https://api.nuget.org/v3-flatcontainer/system.text.json/5.0.2/system.text.json.5.0.2.nupkg 54ms
+info :   OK https://api.nuget.org/v3-flatcontainer/system.valuetuple/index.json 356ms
+info :   GET https://api.nuget.org/v3-flatcontainer/system.valuetuple/4.5.0/system.valuetuple.4.5.0.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/greenpipes/index.json 141ms
+info :   GET https://api.nuget.org/v3-flatcontainer/greenpipes/4.0.1/greenpipes.4.0.1.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/system.valuetuple/4.5.0/system.valuetuple.4.5.0.nupkg 39ms
+info :   OK https://api.nuget.org/v3-flatcontainer/greenpipes/4.0.1/greenpipes.4.0.1.nupkg 37ms
+info : Installing GreenPipes 4.0.1.
+info : Installing Microsoft.Extensions.Primitives 3.1.18.
+info : Installing Newtonsoft.Json 12.0.1.
+info : Installing System.Text.Json 5.0.2.
+info : Installing System.ValueTuple 4.5.0.
+info : Installing Automatonymous 5.1.3.
+info : Installing System.Reflection.Emit 4.7.0.
+info : Installing System.Threading.Channels 4.7.1.
+info : Installing System.Reflection.Emit.Lightweight 4.7.0.
+info : Installing System.Diagnostics.DiagnosticSource 4.7.1.
+info : Installing Newtonsoft.Json.Bson 1.0.2.
+info : Installing Microsoft.Extensions.Logging.Abstractions 2.1.1.
+info : Installing NewId 3.0.3.
+info : Installing Microsoft.Bcl.AsyncInterfaces 5.0.0.
+info : Installing Microsoft.Extensions.Configuration.Abstractions 3.1.18.
+info : Installing Microsoft.Extensions.FileProviders.Abstractions 3.1.18.
+info : Installing MassTransit.AspNetCore 7.3.1.
+info : Installing MassTransit.Extensions.DependencyInjection 7.3.1.
+info : Installing Microsoft.Extensions.Diagnostics.HealthChecks 3.1.18.
+info : Installing Microsoft.Extensions.Logging.Abstractions 3.1.18.
+info : Installing Microsoft.Extensions.Hosting.Abstractions 3.1.18.
+info : Installing MassTransit 7.3.1.
+info : Installing Microsoft.Extensions.DependencyInjection.Abstractions 3.1.18.
+info : Installing Microsoft.Extensions.DependencyInjection.Abstractions 2.1.1.
+info : Installing Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions 3.1.18.
+info : Installing Microsoft.Extensions.Options 3.1.18.
+info : Package 'MassTransit.AspNetCore' is compatible with all the specified frameworks in project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj'.
+info : PackageReference for package 'MassTransit.AspNetCore' version '7.3.1' added to file 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj'.
+info : Committing restore...
+info : Writing assets file to disk. Path: C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\obj\project.assets.json
+log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj (in 2.56 sec).
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services>dotnet add package MassTransit.RabbitMQ
+  Determining projects to restore...
+  Writing C:\Users\x239757\AppData\Local\Temp\tmpE92B.tmp
+info : Adding PackageReference for package 'MassTransit.RabbitMQ' into project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj'.
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/index.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/index.json 490ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/2.0.0.1/3.2.3.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/2.0.0.1/3.2.3.json 131ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/3.2.4/4.0.0.1365-develop.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/3.2.4/4.0.0.1365-develop.json 57ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/4.0.0.1366-develop/5.0.1.1500-develop.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/4.0.0.1366-develop/5.0.1.1500-develop.json 60ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/5.0.1.1501-develop/5.1.5.1621-develop.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/5.0.1.1501-develop/5.1.5.1621-develop.json 73ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/5.1.5.1623-develop/5.2.1-develop.1833.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/5.1.5.1623-develop/5.2.1-develop.1833.json 63ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/5.2.1/5.5.0-develop.1954.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/5.2.1/5.5.0-develop.1954.json 123ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/5.5.0-develop.1958/5.5.5-develop.2120.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/5.5.0-develop.1958/5.5.5-develop.2120.json 125ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/5.5.5-develop.2122/6.0.2-develop.2345.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/5.5.5-develop.2122/6.0.2-develop.2345.json 106ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/6.0.2-develop.2350/6.2.5-develop.2538.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/6.0.2-develop.2350/6.2.5-develop.2538.json 72ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/6.2.5-develop.2539/7.0.0-develop.2812.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/6.2.5-develop.2539/7.0.0-develop.2812.json 121ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/7.0.0-develop.2813/7.0.5-develop.3006.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/7.0.0-develop.2813/7.0.5-develop.3006.json 57ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/7.0.5/7.1.5-develop.3273.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/7.0.5/7.1.5-develop.3273.json 108ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/7.1.5-develop.3275/7.2.0-develop.3348.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/7.1.5-develop.3275/7.2.0-develop.3348.json 120ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/7.2.0-develop.3351/7.3.0-develop.297.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/7.2.0-develop.3351/7.3.0-develop.297.json 134ms
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/7.3.0-develop.299/8.0.0-develop.392.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/masstransit.rabbitmq/page/7.3.0-develop.299/8.0.0-develop.392.json 121ms
+info : Restoring packages for C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj...
+info :   GET https://api.nuget.org/v3-flatcontainer/masstransit.rabbitmq/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/masstransit.rabbitmq/index.json 172ms
+info :   GET https://api.nuget.org/v3-flatcontainer/masstransit.rabbitmq/7.3.1/masstransit.rabbitmq.7.3.1.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/masstransit.rabbitmq/7.3.1/masstransit.rabbitmq.7.3.1.nupkg 41ms
+info :   GET https://api.nuget.org/v3-flatcontainer/rabbitmq.client/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/rabbitmq.client/index.json 71ms
+info :   GET https://api.nuget.org/v3-flatcontainer/rabbitmq.client/6.2.2/rabbitmq.client.6.2.2.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/rabbitmq.client/6.2.2/rabbitmq.client.6.2.2.nupkg 36ms
+info : Installing RabbitMQ.Client 6.2.2.
+info : Installing MassTransit.RabbitMQ 7.3.1.
+info : Package 'MassTransit.RabbitMQ' is compatible with all the specified frameworks in project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj'.
+info : PackageReference for package 'MassTransit.RabbitMQ' version '7.3.1' added to file 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj'.
+info : Committing restore...
+info : Writing assets file to disk. Path: C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\obj\project.assets.json
+log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj (in 1.11 sec).
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
