@@ -1,4 +1,4 @@
-namespace Play.Catalog.Service.Settings
+namespace Play.Common.Services.Settings
 {
     public class ServiceSettings
     {

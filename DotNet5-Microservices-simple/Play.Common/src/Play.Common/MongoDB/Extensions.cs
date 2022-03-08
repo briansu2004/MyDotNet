@@ -4,10 +4,9 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
-using Play.Catalog.Services.Entities;
-using Play.Catalog.Services.Settings;
+using Play.Common.Services.Settings;
 
-namespace Play.Catalog.Services.Repositories
+namespace Play.Common.MongoDB
 {
     public static class Extensions
     {
@@ -30,7 +29,7 @@ namespace Play.Catalog.Services.Repositories
 
         public static IServiceCollection AddMongoRepository<T>(this IServiceCollection services, string collectionName) where T : IEntity
         {
-            services.AddSingleton<IRepository<T>>(serviceProvider =>
+            services.AddSingleton<Common.IRepository<T>>(serviceProvider =>
             {
                 var database = serviceProvider.GetService<IMongoDatabase>();
                 return new MongoRepository<T>(database, collectionName);

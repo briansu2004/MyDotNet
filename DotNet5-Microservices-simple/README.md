@@ -72,6 +72,12 @@ NuGet is the package manager for .Net
 
 A NuGet package is a single ZIP file (.nupkg) that contains files to share with others
 
+VSCode -> View -> Command Palette -> .Net: Generate Assets for Build and Debug
+
+VSCode YAML tip:
+
+Settings -> render whitespace
+
 ## Commands
 
 ```
@@ -119,6 +125,68 @@ dotnet new classlib -n Play.Common --framework net5.0
 ```
 dotnet new classlib -n Play.Common --uninstall
 dotnet new classlib -n Play.Common --uninstall --force
+```
+
+```
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common
+dotnet add package MongoDB.Driver
+dotnet add package Microsoft.Extensions.Configuration
+dotnet add package Microsoft.Extensions.Configuration.Binder
+dotnet add package Microsoft.Extensions.DependencyInjection
+dotnet pack -o ..\..\..\packages\
+```
+
+```
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog
+dotnet nuget add source C:\Code\MyDotNet\DotNet5-Microservices-simple\packages -n PlayEconomy
+```
+
+```
+dotnet nuget list source
+```
+
+```
+dotnet nuget update source PlayEconomy
+```
+
+```
+dotnet nuget remove source PlayEconomy
+```
+
+```
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services
+dotnet add package Play.Common
+```
+
+```
+dotnet remove package Play.Common
+```
+
+```
+dotnet list package
+```
+
+```
+docker stop mongo
+docker-compose up
+
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
@@ -218,6 +286,201 @@ Running 'dotnet restore' on Play.Common\Play.Common.csproj...
   Determining projects to restore...
   All projects are up-to-date for restore.
 Restore succeeded.
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common>dotnet add package MongoDB.Driver
+  Determining projects to restore...
+  Writing C:\Users\x239757\AppData\Local\Temp\tmp5D85.tmp
+info : Adding PackageReference for package 'MongoDB.Driver' into project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj'.
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/mongodb.driver/index.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/mongodb.driver/index.json 138ms
+info : Restoring packages for C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj...
+info : Package 'MongoDB.Driver' is compatible with all the specified frameworks in project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj'.
+info : PackageReference for package 'MongoDB.Driver' version '2.14.1' added to file 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj'.
+info : Committing restore...
+info : Writing assets file to disk. Path: C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\obj\project.assets.json
+log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj (in 166 ms).
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common>dotnet add package Microsoft.Extensions.Configuration
+  Determining projects to restore...
+  Writing C:\Users\x239757\AppData\Local\Temp\tmp4015.tmp
+info : Adding PackageReference for package 'Microsoft.Extensions.Configuration' into project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj'.
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/microsoft.extensions.configuration/index.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/microsoft.extensions.configuration/index.json 423ms
+info : Restoring packages for C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj...
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration/index.json 67ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration/6.0.0/microsoft.extensions.configuration.6.0.0.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration/6.0.0/microsoft.extensions.configuration.6.0.0.nupkg 33ms
+info : Installing Microsoft.Extensions.Configuration 6.0.0.
+info : Package 'Microsoft.Extensions.Configuration' is compatible with all the specified frameworks in project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj'.
+info : PackageReference for package 'Microsoft.Extensions.Configuration' version '6.0.0' added to file 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj'.
+info : Committing restore...
+info : Writing assets file to disk. Path: C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\obj\project.assets.json
+log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj (in 698 ms).
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common>dotnet add package Microsoft.Extensions.Configuration.Binder
+  Determining projects to restore...
+  Writing C:\Users\x239757\AppData\Local\Temp\tmpB891.tmp
+info : Adding PackageReference for package 'Microsoft.Extensions.Configuration.Binder' into project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj'.
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/microsoft.extensions.configuration.binder/index.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/microsoft.extensions.configuration.binder/index.json 434ms
+info : Restoring packages for C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj...
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.binder/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.binder/index.json 207ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.binder/6.0.0/microsoft.extensions.configuration.binder.6.0.0.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.configuration.binder/6.0.0/microsoft.extensions.configuration.binder.6.0.0.nupkg 64ms
+info : Installing Microsoft.Extensions.Configuration.Binder 6.0.0.
+info : Package 'Microsoft.Extensions.Configuration.Binder' is compatible with all the specified frameworks in project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj'.
+info : PackageReference for package 'Microsoft.Extensions.Configuration.Binder' version '6.0.0' added to file 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj'.
+info : Committing restore...
+info : Writing assets file to disk. Path: C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\obj\project.assets.json
+log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj (in 755 ms).
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common>
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common>dotnet add package Microsoft.Extensions.DependencyInjection
+  Determining projects to restore...
+  Writing C:\Users\x239757\AppData\Local\Temp\tmp41B6.tmp
+info : Adding PackageReference for package 'Microsoft.Extensions.DependencyInjection' into project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj'.
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/microsoft.extensions.dependencyinjection/index.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/microsoft.extensions.dependencyinjection/index.json 534ms
+info : Restoring packages for C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj...
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection/index.json
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection/index.json 626ms
+info :   GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection/6.0.0/microsoft.extensions.dependencyinjection.6.0.0.nupkg
+info :   OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.dependencyinjection/6.0.0/microsoft.extensions.dependencyinjection.6.0.0.nupkg 232ms
+info : Installing Microsoft.Extensions.DependencyInjection 6.0.0.
+info : Package 'Microsoft.Extensions.DependencyInjection' is compatible with all the specified frameworks in project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj'.
+info : PackageReference for package 'Microsoft.Extensions.DependencyInjection' version '6.0.0' added to file 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj'.
+info : Committing restore...
+info : Writing assets file to disk. Path: C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\obj\project.assets.json
+log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj (in 2.03 sec).
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common>dotnet pack -o ..\..\..\packages\
+Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Play.Common -> C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\bin\Debug\net5.0\Play.Common.dll
+  Successfully created package 'C:\Code\MyDotNet\DotNet5-Microservices-simple\packages\Play.Common.1.0.0.nupkg'.
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\packages>dir
+ Volume in drive C is L113220
+ Volume Serial Number is E8F0-3AB6
+
+ Directory of C:\Code\MyDotNet\DotNet5-Microservices-simple\packages
+
+07/03/2022  08:27 PM    <DIR>          .
+07/03/2022  08:27 PM    <DIR>          ..
+07/03/2022  08:27 PM             8,698 Play.Common.1.0.0.nupkg
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog>dotnet nuget add source C:\Code\MyDotNet\DotNet5-Microservices-simple\packages -n PlayEconomy
+Package source with Name: PlayEconomy added successfully.
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services>dotnet add package Play.Common
+  Determining projects to restore...
+  Writing C:\Users\x239757\AppData\Local\Temp\tmpB9BD.tmp
+info : Adding PackageReference for package 'Play.Common' into project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj'.
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/play.common/index.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/play.common/index.json 525ms
+info : Restoring packages for C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj...
+info : Installing Play.Common 1.0.0.
+info : Package 'Play.Common' is compatible with all the specified frameworks in project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj'.
+info : PackageReference for package 'Play.Common' version '1.0.0' added to file 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj'.
+info : Committing restore...
+info : Writing assets file to disk. Path: C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\obj\project.assets.json
+log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj (in 213 ms).
+```
+
+Play.Catalog.Service.csproj
+
+```
+  <ItemGroup>
+    ...
+    <PackageReference Include="Play.Common" Version="1.0.0" />
+    ...
+  </ItemGroup>
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog>dotnet nuget list source
+Registered Sources:
+  1.  nuget.org [Enabled]
+      https://api.nuget.org/v3/index.json
+  2.  PlayEconomy [Enabled]
+      C:\Code\MyDotNet\DotNet5-Microservices-simple\packages
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog>dotnet nuget update source PlayEconomy
+Package source "PlayEconomy" was successfully updated.
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services>dotnet remove package Play.Common
+info : Removing PackageReference for package 'Play.Common' from project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services\Play.Catalog.Services.csproj'.
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\packages>dotnet nuget remove source PlayEconomy
+Package source with Name: PlayEconomy removed successfully.
+```
+
+```
+
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Infra>docker-compose up
+[+] Running 3/3
+ - Network playinfra_default       Created                                                                                                                              0.1s
+ - Volume "playinfra_mongodbdata"  Created                                                                                                                              0.0s
+ - Container mongo                 Created                                                                                                                              0.2s
+Attaching to mongo
+mongo  | {"t":{"$date":"2022-03-08T02:15:44.039+00:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"-","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":13},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":13},"outgoing":{"minWireVersion":0,"maxWireVersion":13},"isInternalClient":true}}}
+mongo  | {"t":{"$date":"2022-03-08T02:15:44.044+00:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"main","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0
+specify --sslDisabledProtocols 'none'"}
+mongo  | {"t":{"$date":"2022-03-08T02:15:44.046+00:00"},"s":"W",  "c":"ASIO",     "id":22601,   "ctx":"main","msg":"No TransportLayer configured during NetworkInterface startup"}
+mongo  | {"t":{"$date":"2022-03-08T02:15:44.048+00:00"},"s":"I",  "c":"NETWORK",  "id":4648601, "ctx":"main","msg":"Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set tcpFastOpenServer, tcpFastOpenClient, and tcpFastOpenQueueSize."}
+mongo  | {"t":{"$date":"2022-03-08T02:15:44.068+00:00"},"s":"W",  "c":"ASIO",     "id":22601,   "ctx":"main","msg":"No TransportLayer configured during NetworkInterface startup"}
+mongo  | {"t":{"$date":"2022-03-08T02:15:44.069+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationDonorService","ns":"config.tenantMigrationDonors"}}
+mongo  | {"t":{"$date":"2022-03-08T02:15:44.069+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationRecipientService","ns":"config.tenantMigrationRecipients"}}
+mongo  | {"t":{"$date":"2022-03-08T02:15:44.069+00:00"},"s":"I",  "c":"CONTROL",  "id":5945603, "ctx":"main","msg":"Multi threading initialized"}
+mongo  | {"t":{"$date":"2022-03-08T02:15:44.071+00:00"},"s":"I",  "c":"CONTROL",  "id":4615611, "ctx":"initandlisten","msg":"MongoDB starting","attr":{"pid":1,"port":27017,"dbPath":"/data/db","architecture":"64-bit","host":"3a04ba216a0a"}}
+mongo  | {"t":{"$date":"2022-03-08T02:15:44.072+00:00"},"s":"I",  "c":"CONTROL",  "id":23403,   "ctx":"initandlisten","msg":"Build Info","attr":{"buildInfo":{"version":"5.0.6","gitVersion":"212a8dbb47f07427dae194a9c75baec1d81d9259","openSSLVersion":"OpenSSL 1.1.1f  31 Mar 2020","modules":[],"allocator":"tcmalloc","environment":{"distmod":"ubuntu2004","distarch":"x86_64","target_arch":"x86_64"}}}}
+mongo  | {"t":{"$date":"2022-03-08T02:15:44.072+00:00"},"s":"I",  "c":"CONTROL",  "id":51765,   "ctx":"initandlisten","msg":"Operating System","attr":{"os":{"name":"Ubuntu","version":"20.04"}}}
+mongo  | {"t":{"$date":"2022-03-08T02:19:45.228+00:00"},"s":"I",  "c":"STORAGE",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":"[1646705985:228710][1:0x7faa638b0700], WT_SESSION.checkpoint: [WT_VERB_CHECKPOINT_PROGRESS] saving checkpoint snapshot min: 41, snapshot max: 41 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1"}}
+Gracefully stopping... (press Ctrl+C again to force)
+[+] Running 1/1
+ - Container mongo  Stopped                                                                                                                                                                         0.6s
+canceled
+```
+
+```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Infra>docker-compose up -d
+[+] Running 1/1
+ - Container mongo  Started
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```

@@ -20,6 +20,7 @@
           "net5.0"
         ],
         "sources": {
+          "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,6 +56,10 @@
             "MongoDB.driver": {
               "target": "Package",
               "version": "[2.14.1, )"
+            },
+            "Play.Common": {
+              "target": "Package",
+              "version": "[1.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
