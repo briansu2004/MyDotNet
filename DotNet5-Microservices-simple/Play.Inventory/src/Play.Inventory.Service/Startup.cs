@@ -30,8 +30,7 @@ namespace Play.Inventory.Service
         {
             services.AddMongo().AddMongoRepository<InventoryItem>("inventoryitems");
 
-
-            Random jitter = new Random();
+            Random jitter = new();
 
             services.AddHttpClient<CatalogClient>(client =>
             {

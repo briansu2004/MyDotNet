@@ -25,13 +25,11 @@
     ".NETCoreApp,Version=v5.0": {
       "Play.Catalog.Services/1.0.0": {
         "dependencies": {
-          "MassTransit.AspNetCore": "7.3.1",
-          "MassTransit.RabbitMQ": "7.3.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.0",
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "5.0.0",
           "MongoDB.Driver": "2.14.1",
           "Play.Catalog.Contracts": "1.0.0",
-          "Play.Common": "1.0.0",
+          "Play.Common": "1.0.1",
           "Swashbuckle.AspNetCore": "5.6.3",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
@@ -811,8 +809,10 @@
           "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {}
         }
       },
-      "Play.Common/1.0.0": {
+      "Play.Common/1.0.1": {
         "dependencies": {
+          "MassTransit.AspNetCore": "7.3.1",
+          "MassTransit.RabbitMQ": "7.3.1",
           "Microsoft.Extensions.Configuration": "6.0.0",
           "Microsoft.Extensions.Configuration.Binder": "6.0.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -2871,12 +2871,12 @@
       "path": "newtonsoft.json.bson/1.0.2",
       "hashPath": "newtonsoft.json.bson.1.0.2.nupkg.sha512"
     },
-    "Play.Common/1.0.0": {
+    "Play.Common/1.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UZNI6/XoDiG4cWFS65kF+/LImb8asudXP1Ii4ibEmgZ0PcUZOJlDo5RwRFPZpuv6AfWUrmVN2iHPY2KlS2VhTg==",
-      "path": "play.common/1.0.0",
-      "hashPath": "play.common.1.0.0.nupkg.sha512"
+      "sha512": "sha512-QhXrHjrvithygRS3Sax8aPwmjxNvfQ3b8w2ze9OWoDVoux+7iGRDVufQunJWTW6pfXOWvo075HTLU4FyxXoA9w==",
+      "path": "play.common/1.0.1",
+      "hashPath": "play.common.1.0.1.nupkg.sha512"
     },
     "RabbitMQ.Client/6.2.2": {
       "type": "package",

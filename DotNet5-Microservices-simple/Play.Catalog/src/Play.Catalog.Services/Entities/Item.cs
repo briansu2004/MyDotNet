@@ -1,6 +1,6 @@
 
 using System;
-using Play.Common.Services.Entities;
+using Play.Common;
 
 namespace Play.Catalog.Services.Entities
 {

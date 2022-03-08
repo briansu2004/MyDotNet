@@ -526,9 +526,11 @@
           "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {}
         }
       },
-      "Play.Common/1.0.0": {
+      "Play.Common/1.0.1": {
         "type": "package",
         "dependencies": {
+          "MassTransit.AspNetCore": "7.3.1",
+          "MassTransit.RabbitMQ": "7.3.1",
           "Microsoft.Extensions.Configuration": "6.0.0",
           "Microsoft.Extensions.Configuration.Binder": "6.0.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -1521,14 +1523,14 @@
         "newtonsoft.json.bson.nuspec"
       ]
     },
-    "Play.Common/1.0.0": {
-      "sha512": "UZNI6/XoDiG4cWFS65kF+/LImb8asudXP1Ii4ibEmgZ0PcUZOJlDo5RwRFPZpuv6AfWUrmVN2iHPY2KlS2VhTg==",
+    "Play.Common/1.0.1": {
+      "sha512": "QhXrHjrvithygRS3Sax8aPwmjxNvfQ3b8w2ze9OWoDVoux+7iGRDVufQunJWTW6pfXOWvo075HTLU4FyxXoA9w==",
       "type": "package",
-      "path": "play.common/1.0.0",
+      "path": "play.common/1.0.1",
       "files": [
         ".nupkg.metadata",
         "lib/net5.0/Play.Common.dll",
-        "play.common.1.0.0.nupkg.sha512",
+        "play.common.1.0.1.nupkg.sha512",
         "play.common.nuspec"
       ]
     },
@@ -2025,13 +2027,11 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "MassTransit.AspNetCore >= 7.3.1",
-      "MassTransit.RabbitMQ >= 7.3.1",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.0",
       "Microsoft.AspNetCore.Authentication.OpenIdConnect >= 5.0.0",
       "MongoDB.driver >= 2.14.1",
       "Play.Catalog.Contracts >= 1.0.0",
-      "Play.Common >= 1.0.0",
+      "Play.Common >= 1.0.1",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -2077,14 +2077,6 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
-          "MassTransit.AspNetCore": {
-            "target": "Package",
-            "version": "[7.3.1, )"
-          },
-          "MassTransit.RabbitMQ": {
-            "target": "Package",
-            "version": "[7.3.1, )"
-          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[5.0.0, )",
@@ -2105,7 +2097,7 @@
           },
           "Play.Common": {
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.0.1, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

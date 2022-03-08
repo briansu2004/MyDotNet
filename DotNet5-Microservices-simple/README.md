@@ -301,11 +301,19 @@ info: Microsoft.Hosting.Lifetime[0]
 ```
 
 ```
-
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common
+dotnet add package MassTransit.AspNetCore
+dotnet add package MassTransit.RabbitMQ
 ```
 
 ```
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common
+dotnet pack -p:PackageVersion=1.0.1 -o ..\..\..\packages\
+```
 
+```
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service
+dotnet add package Play.Catalog.Contracts
 ```
 
 ```
@@ -914,11 +922,32 @@ log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\P
 ```
 
 ```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common>dotnet pack -p:PackageVersion=1.0.1 -o ..\..\..\packages\
+Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+Copyright (C) Microsoft Corporation. All rights reserved.
 
+  Determining projects to restore...
+  Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj (in 266 ms).
+  Unable to use package assets cache due to I/O error. This can occur when the same project is built more than once in parallel. Performance may be degraded,
+but the build result will not be impacted.
+  Play.Common -> C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\bin\Debug\net5.0\Play.Common.dll
+  Successfully created package 'C:\Code\MyDotNet\DotNet5-Microservices-simple\packages\Play.Common.1.0.1.nupkg'.
 ```
 
 ```
-
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service>dotnet add package Play.Catalog.Contracts
+  Determining projects to restore...
+  Writing C:\Users\x239757\AppData\Local\Temp\tmp28F0.tmp
+info : Adding PackageReference for package 'Play.Catalog.Contracts' into project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj'.
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/play.catalog.contracts/index.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/play.catalog.contracts/index.json 159ms
+info : Restoring packages for C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj...
+info : Installing Play.Catalog.Contracts 1.0.0.
+info : Package 'Play.Catalog.Contracts' is compatible with all the specified frameworks in project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj'.
+info : PackageReference for package 'Play.Catalog.Contracts' version '1.0.0' added to file 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj'.
+info : Committing restore...
+info : Writing assets file to disk. Path: C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\obj\project.assets.json
+log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj (in 198 ms).
 ```
 
 ```

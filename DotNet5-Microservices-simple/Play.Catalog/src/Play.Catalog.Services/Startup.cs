@@ -1,15 +1,11 @@
-using MassTransit;
-using MassTransit.Definition;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using MongoDB.Driver;
 using Play.Catalog.Services.Entities;
-using Play.Catalog.Services.Settings;
-using Play.Common;
+using Play.Common.MassTransit;
 using Play.Common.MongoDB;
 using Play.Common.Services.Settings;
 
@@ -39,38 +35,14 @@ namespace Play.Catalog.Services
             serviceSettings = Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
 
             services.AddMongo()
-                    .AddMongoRepository<Item>("items");
-
-            services.AddMassTransit(x =>
-           {
-               x.UsingRabbitMq((context, configurator) =>
-               {
-                   var rabbitMQSettings = Configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
-                   configurator.Host(rabbitMQSettings.Host);
-                   configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceSettings.ServiceName, false));
-               });
-           });
-
-            services.AddMassTransitHostedService();
-
-            // services.AddSingleton(serviceProvider =>
-            // {
-            //     var mongoDbSettings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
-            //     var mongoClient = new MongoClient(mongoDbSettings.ConnectionString);
-            //     return mongoClient.GetDatabase(serviceSettings.ServiceName);
-            // });
-
-            //services.AddSingleton<IItemsRepository, ItemsRepository>();
-            services.AddSingleton<IRepository<Item>>(serviceProvider =>
-            {
-                var database = serviceProvider.GetService<IMongoDatabase>();
-                return new MongoRepository<Item>(database, "items");
-            });
+                    .AddMongoRepository<Item>("items")
+                    .AddMassTransitWithRabbitMq();
 
             services.AddControllers(options =>
             {
                 options.SuppressAsyncSuffixInActionNames = false;
             });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Play.Catalog.Services", Version = "v1" });

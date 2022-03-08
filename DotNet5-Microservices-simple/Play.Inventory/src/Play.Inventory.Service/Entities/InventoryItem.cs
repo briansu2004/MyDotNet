@@ -1,5 +1,5 @@
 using System;
-using Play.Common.Services.Entities;
+using Play.Common;
 
 namespace Play.Inventory.Service.Entities
 {

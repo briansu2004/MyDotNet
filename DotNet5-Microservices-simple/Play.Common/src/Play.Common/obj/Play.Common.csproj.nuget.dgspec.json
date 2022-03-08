@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj": {}
+    "c:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj": {}
   },
   "projects": {
-    "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj": {
+    "c:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj",
+        "projectUniqueName": "c:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj",
         "projectName": "Play.Common",
-        "projectPath": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj",
+        "projectPath": "c:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj",
         "packagesPath": "C:\\Users\\x239757\\.nuget\\packages\\",
-        "outputPath": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\obj\\",
+        "outputPath": "c:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\x239757\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -39,6 +39,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "MassTransit.AspNetCore": {
+              "target": "Package",
+              "version": "[7.3.1, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[7.3.1, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[6.0.0, )"
