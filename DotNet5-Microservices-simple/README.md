@@ -78,6 +78,12 @@ VSCode YAML tip:
 
 Settings -> render whitespace
 
+Set timouts for inter service communication
+
+implement retries with exponential backoff
+
+implement the circuit breaker pattern
+
 ## Commands
 
 ```
@@ -169,12 +175,20 @@ dotnet list package
 ```
 docker stop mongo
 docker-compose up
-
-
 ```
 
 ```
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\
+md Play.Inventory
+cd Play.Inventory
+md src
+cd src
+dotnet new webapi -n Play.Inventory.Service
+```
 
+```
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service
+dotnet add package Play.Common
 ```
 
 ```
@@ -476,11 +490,29 @@ C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Infra>docker-compose up -d
 ```
 
 ```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src>dotnet new webapi -n Play.Inventory.Service
+The template "ASP.NET Core Web API" was created successfully.
 
+Processing post-creation actions...
+Running 'dotnet restore' on Play.Inventory.Service\Play.Inventory.Service.csproj...
+  Determining projects to restore...
+  Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj (in 212 ms).
+Restore succeeded.
 ```
 
 ```
-
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service>dotnet add package Play.Common
+  Determining projects to restore...
+  Writing C:\Users\x239757\AppData\Local\Temp\tmpE78B.tmp
+info : Adding PackageReference for package 'Play.Common' into project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj'.
+info :   GET https://api.nuget.org/v3/registration5-gz-semver2/play.common/index.json
+info :   OK https://api.nuget.org/v3/registration5-gz-semver2/play.common/index.json 85ms
+info : Restoring packages for C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj...
+info : Package 'Play.Common' is compatible with all the specified frameworks in project 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj'.
+info : PackageReference for package 'Play.Common' version '1.0.0' added to file 'C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj'.
+info : Committing restore...
+info : Writing assets file to disk. Path: C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\obj\project.assets.json
+log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src\Play.Inventory.Service\Play.Inventory.Service.csproj (in 260 ms).
 ```
 
 ```
@@ -494,3 +526,13 @@ C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Infra>docker-compose up -d
 ## Misc
 
 Cannot implicitly convert type 'Microsoft.AspNetCore.Mvc.NotFoundResult' to 'Play.Catalog.Services.ItemDto' [Play.Catalog.Services]
+
+## Troubleshooting
+
+### undefined /swagger/v1/swagger.json
+
+https://stackoverflow.com/questions/56859604/swagger-not-loading-failed-to-load-api-definition-fetch-error-undefined
+
+Simply navigate to https://localhost:{PortNo}/swagger/v1/swagger.json and get much more details about the error message.
+
+Root cause: forgot the annoation [HttpGet] [HttpPost]
