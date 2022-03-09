@@ -263,7 +263,7 @@ dotnet new classlib -n Play.Catalog.Contracts
 if created in error, just remove the folder and re-create.
 
 ```
-cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Services
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Catalog\src\Play.Catalog.Service
 dotnet add reference ..\Play.Catalog.Contracts\Play.Catalog.Contracts.csproj
 ```
 
@@ -1029,3 +1029,17 @@ Root cause: forgot the annoation [HttpGet] [HttpPost]
 ### Postman baseURL
 
 Can't add "/" at the end by default
+
+### Stuck at 6-7 "Consuming messages for eventual data consistency"
+
+```
+Exception has occurred: CLR/System.AggregateException
+An unhandled exception of type 'System.AggregateException' occurred in Microsoft.Extensions.DependencyInjection.dll: 'Some services are not able to be constructed'
+ Inner exceptions found, see $exception in variables window for more details.
+ Innermost exception 	 System.InvalidOperationException : Unable to resolve service for type 'Play.Common.IRepository`1[Play.Inventory.Service.Entities.CatalogItem]' while attempting to activate 'Play.Inventory.Service.Consumers.CatalogItemCreatedConsumer'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
+```

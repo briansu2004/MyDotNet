@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Play.Inventory.Service
+namespace Play.Catalog.Service
 {
     public class Program
     {

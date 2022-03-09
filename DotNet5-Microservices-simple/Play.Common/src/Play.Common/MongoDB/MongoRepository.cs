@@ -6,19 +6,11 @@ using MongoDB.Driver;
 
 namespace Play.Common.MongoDB
 {
+
     public class MongoRepository<T> : IRepository<T> where T : IEntity
     {
-        //private const string collectionName = "items";
-
         private readonly IMongoCollection<T> dbCollection;
         private readonly FilterDefinitionBuilder<T> filterBuilder = Builders<T>.Filter;
-
-        // public ItemsRepository()
-        // {
-        //     var mongoClient = new MongoClient("mongodb://localhost:27017");
-        //     var database = mongoClient.GetDatabase("Catalog");
-        //     dbCollection = database.GetCollection<Item>(collectionName);
-        // }
 
         public MongoRepository(IMongoDatabase database, string collectionName)
         {
@@ -33,7 +25,7 @@ namespace Play.Common.MongoDB
         public async Task<IReadOnlyCollection<T>> GetAllAsync(Expression<Func<T, bool>> filter)
         {
             return await dbCollection.Find(filter).ToListAsync();
-        }
+        }        
 
         public async Task<T> GetAsync(Guid id)
         {
@@ -44,7 +36,7 @@ namespace Play.Common.MongoDB
         public async Task<T> GetAsync(Expression<Func<T, bool>> filter)
         {
             return await dbCollection.Find(filter).FirstOrDefaultAsync();
-        }
+        }        
 
         public async Task CreateAsync(T entity)
         {

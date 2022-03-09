@@ -39,23 +39,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[5.0.0, )",
-              "noWarn": [
-                "NU1605"
-              ]
-            },
-            "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
-              "target": "Package",
-              "version": "[5.0.0, )",
-              "noWarn": [
-                "NU1605"
-              ]
-            },
             "Microsoft.Extensions.Http.Polly": {
               "target": "Package",
-              "version": "[6.0.3, )"
+              "version": "[5.0.1, )"
             },
             "Play.Catalog.Contracts": {
               "target": "Package",

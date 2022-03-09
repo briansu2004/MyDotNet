@@ -3,7 +3,6 @@ using MassTransit;
 using MassTransit.Definition;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Play.Common.Services.Settings;
 using Play.Common.Settings;
 
 namespace Play.Common.MassTransit
@@ -13,18 +12,18 @@ namespace Play.Common.MassTransit
         public static IServiceCollection AddMassTransitWithRabbitMq(this IServiceCollection services)
         {
             services.AddMassTransit(configure =>
-           {
-               configure.AddConsumers(Assembly.GetEntryAssembly());
+            {
+                configure.AddConsumers(Assembly.GetEntryAssembly());
 
-               configure.UsingRabbitMq((context, configurator) =>
-               {
-                   var configuration = context.GetService<IConfiguration>();
-                   var serviceSettings = configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
-                   var rabbitMQSettings = configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
-                   configurator.Host(rabbitMQSettings.Host);
-                   configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceSettings.ServiceName, false));
-               });
-           });
+                configure.UsingRabbitMq((context, configurator) =>
+                {
+                    var configuration = context.GetService<IConfiguration>();
+                    var serviceSettings = configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
+                    var rabbitMQSettings = configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
+                    configurator.Host(rabbitMQSettings.Host);
+                    configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceSettings.ServiceName, false));
+                });
+            });
 
             services.AddMassTransitHostedService();
 

@@ -8,10 +8,12 @@
     <description>Package Description</description>
     <dependencies>
       <group targetFramework="net5.0">
-        <dependency id="Microsoft.Extensions.Configuration" version="6.0.0" exclude="Build,Analyzers" />
-        <dependency id="Microsoft.Extensions.Configuration.Binder" version="6.0.0" exclude="Build,Analyzers" />
-        <dependency id="Microsoft.Extensions.DependencyInjection" version="6.0.0" exclude="Build,Analyzers" />
-        <dependency id="MongoDB.Driver" version="2.14.1" exclude="Build,Analyzers" />
+        <dependency id="MassTransit.AspNetCore" version="7.1.4" exclude="Build,Analyzers" />
+        <dependency id="MassTransit.RabbitMQ" version="7.1.4" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Configuration" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Configuration.Binder" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="5.0.1" exclude="Build,Analyzers" />
+        <dependency id="MongoDB.Driver" version="2.11.6" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>

@@ -31,15 +31,13 @@ namespace Play.Inventory.Service.Controllers
                 return BadRequest();
             }
 
-            //var items = (await itemsRepository.GetAllAsync(item => item.UserId == userId)).Select(item => item.AsDto());
-
             var catalogItems = await catalogClient.GetCatalogItemsAsync();
             var inventoryItemEntities = await itemsRepository.GetAllAsync(item => item.UserId == userId);
 
-            var inventoryItemDtos = inventoryItemEntities.Select(intentoryItem =>
+            var inventoryItemDtos = inventoryItemEntities.Select(inventoryItem =>
             {
-                var catalogItem = catalogItems.Single(catalogItem => catalogItem.Id == intentoryItem.CatalogItemId);
-                return intentoryItem.AsDto(catalogItem.Name, catalogItem.Description);
+                var catalogItem = catalogItems.Single(catalogItem => catalogItem.Id == inventoryItem.CatalogItemId);
+                return inventoryItem.AsDto(catalogItem.Name, catalogItem.Description);
             });
 
             return Ok(inventoryItemDtos);
@@ -48,7 +46,8 @@ namespace Play.Inventory.Service.Controllers
         [HttpPost]
         public async Task<ActionResult> PostAsync(GrantItemsDto grantItemsDto)
         {
-            var inventoryItem = await itemsRepository.GetAsync(item => item.UserId == grantItemsDto.UserId && item.CatalogItemId == grantItemsDto.CatalogItemId);
+            var inventoryItem = await itemsRepository.GetAsync(
+                item => item.UserId == grantItemsDto.UserId && item.CatalogItemId == grantItemsDto.CatalogItemId);
 
             if (inventoryItem == null)
             {

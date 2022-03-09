@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj": {}
+    "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj": {}
   },
   "projects": {
-    "c:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj": {
-      "version": "1.0.0",
+    "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj": {
+      "version": "1.0.1",
       "restore": {
-        "projectUniqueName": "c:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj",
+        "projectUniqueName": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj",
         "projectName": "Play.Common",
-        "projectPath": "c:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj",
+        "projectPath": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj",
         "packagesPath": "C:\\Users\\x239757\\.nuget\\packages\\",
-        "outputPath": "c:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\obj\\",
+        "outputPath": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\x239757\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -41,27 +41,27 @@
           "dependencies": {
             "MassTransit.AspNetCore": {
               "target": "Package",
-              "version": "[7.3.1, )"
+              "version": "[7.1.4, )"
             },
             "MassTransit.RabbitMQ": {
               "target": "Package",
-              "version": "[7.3.1, )"
+              "version": "[7.1.4, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[5.0.0, )"
             },
             "Microsoft.Extensions.Configuration.Binder": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[5.0.0, )"
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[5.0.1, )"
             },
             "MongoDB.Driver": {
               "target": "Package",
-              "version": "[2.14.1, )"
+              "version": "[2.11.6, )"
             }
           },
           "imports": [
