@@ -139,6 +139,12 @@ http://localhost:15672
 
 guest | guest
 
+CORS
+
+A web application can only request resources from the same origin the application was load from.
+
+CORS preflighted requests: POST/PUT/DELETE
+
 ## Commands
 
 ```
@@ -1055,6 +1061,59 @@ An unhandled exception of type 'System.AggregateException' occurred in Microsoft
 "Resolved" by replacing everything with Julio's code.
 
 Possible root cause: the Play.Common reference
+
+### VSCode debug launch Edge instead of Chrome
+
+launch.json
+
+Just change "pwa-msedge" to "pwa-chrome"!
+
+```
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Chrome",
+      "request": "launch",
+      "type": "pwa-chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Attach to Chrome",
+      "port": 9222,
+      "request": "attach",
+      "type": "pwa-chrome",
+      "webRoot": "${workspaceFolder}"
+    },
+
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Client",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/src"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Server/Client",
+      "configurations": ["Server", "Client"]
+    }
+  ]
+}
+```
 
 ## ToDo
 
