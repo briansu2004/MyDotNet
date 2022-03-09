@@ -317,7 +317,8 @@ dotnet add package Play.Catalog.Contracts
 ```
 
 ```
-
+cd C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common
+dotnet pack -p:PackageVersion=1.0.2 -o ..\..\..\packages
 ```
 
 ```
@@ -951,7 +952,14 @@ log  : Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Inventory\src
 ```
 
 ```
+C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common>dotnet pack -p:PackageVersion=1.0.2 -o ..\..\..\packages
+Microsoft (R) Build Engine version 16.8.0+126527ff1 for .NET
+Copyright (C) Microsoft Corporation. All rights reserved.
 
+  Determining projects to restore...
+  Restored C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\Play.Common.csproj (in 304 ms).
+  Play.Common -> C:\Code\MyDotNet\DotNet5-Microservices-simple\Play.Common\src\Play.Common\bin\Debug\net5.0\Play.Common.dll
+  Successfully created package 'C:\Code\MyDotNet\DotNet5-Microservices-simple\packages\Play.Common.1.0.2.nupkg'.
 ```
 
 ```
@@ -1043,3 +1051,11 @@ An unhandled exception of type 'System.AggregateException' occurred in Microsoft
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
    at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
 ```
+
+"Resolved" by replacing everything with Julio's code.
+
+Possible root cause: the Play.Common reference
+
+## ToDo
+
+Add this story and all related keywords to my CV!

@@ -5719,7 +5719,7 @@
     "C:\\Users\\x239757\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.1",
+    "version": "1.0.2",
     "restore": {
       "projectUniqueName": "C:\\Code\\MyDotNet\\DotNet5-Microservices-simple\\Play.Common\\src\\Play.Common\\Play.Common.csproj",
       "projectName": "Play.Common",
