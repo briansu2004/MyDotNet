@@ -145,9 +145,11 @@ How to Check if Processor is 32-bit, 64-bit, or ARM in Windows 10?
 
 ### .Net core 6.0
 
-
+dotnet-sdk-6.0.201-win-x64.exe
 
 ### SQL Server 2019 Express
+
+SQL2019-SSEI-Expr.exe
 
 C:\Program Files\Microsoft SQL Server
 
@@ -177,6 +179,8 @@ Connect SQL Server with SQL CMD:
 
 ### SQL Server Management Studio (SSMS) 18
 
+SSMS-Setup-ENU.exe
+
 C:\Program Files (x86)\Microsoft SQL Server Management Studio 18
 
 ### Visual Studio 2022 Preview Enterprise Edition
@@ -204,6 +208,24 @@ C:\Program Files\Microsoft Visual Studio\2022\Preview
 ### Blazor
 
     Blazor is a free and open-source web framework that enables developers to create web apps using C# and HTML.
+
+### Sqlite
+
+Sqlite Studio 3.3.3
+
+C:\Apps\SQLiteStudio\
+
+![](image/README/Sqlite_Worksheet_01.png)
+
+![](image/README/Sqlite_Worksheet_02.png)
+
+![](image/README/Sqlite_Worksheet_03.png)
+
+![](image/README/Sqlite_Worksheet_04.png)
+
+![](image/README/Sqlite_Worksheet_05.png)
+
+![](image/README/Sqlite_Worksheet_06.png)
 
 ### WPF
 
