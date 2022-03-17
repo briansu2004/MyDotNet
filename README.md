@@ -126,7 +126,26 @@ the Repository Pattern, Dependency Injection, Entity Framework, Data Transfer Ob
 
 StyleCop, Sonar, Resharper, Visual Studio and Roslyn
 
-## Local
+## Local .Net installation
+
+### Understand the CPU
+
+To download .net core, there are 3 options for Windows - x64, x86, and Arm64.
+
+Like x86 and x64, ARM is a different processor (CPU) architecture. The ARM architecture is typically used to build CPUs for a mobile device, ARM64 is simply an extension or evolution of the ARM architecture that supports 64-bit processing. Devices built on the ARM64 architecture include desktop PCs, mobile devices, and some IoT Core devices (Rasperry Pi 2, Raspberry Pi 3, and DragonBoard). For example the Microsoft HoloLens 2 uses an ARM64 processor.
+
+How to Check if Processor is 32-bit, 64-bit, or ARM in Windows 10?
+
+- Open the Settings app.
+- Navigate to System > About.
+- On the right, check out the System type value
+- It shows either a x86-based processor (32-bit), x64-based processor (64-bit), or ARM-based processor depending on the hardware you have.
+
+![](image/README/cpu_type.png)
+
+### .Net core 6.0
+
+
 
 ### SQL Server 2019 Express
 
@@ -156,6 +175,44 @@ Connect SQL Server with SQL CMD:
 
 ![](image/README/sql_server_2019_express_sqlcmd.png)
 
-## SQL Server Management Studio (SSMS) 18
+### SQL Server Management Studio (SSMS) 18
 
-### Visual Studio 2022 Community Edition
+C:\Program Files (x86)\Microsoft SQL Server Management Studio 18
+
+### Visual Studio 2022 Preview Enterprise Edition
+
+C:\Program Files\Microsoft Visual Studio\2022\Preview
+
+![](image/README/visual_studio_installer.png)
+
+## New targets
+
+### Telerik
+
+    Progressive Telerik
+
+    Telerik UI for ASP.NET AJAX
+
+### MAUI
+
+    .NET Multi-platform App UI documentation
+
+    .NET Multi-platform App UI (.NET MAUI) lets you build native apps using a .NET cross-platform UI toolkit that targets the mobile and desktop form factors on Android, iOS, macOS, Windows, and Tizen.
+
+    online + offline mode
+
+### Blazor
+
+    Blazor is a free and open-source web framework that enables developers to create web apps using C# and HTML.
+
+### WPF
+
+### PCF
+
+### NgRx
+
+NgRx Store provides reactive state management for Angular apps inspired by Redux. Unify the events in your application and derive state using RxJS.
+
+Someone said - NgRx has so much boilerplate code and it’s syntax is not straight forward at all. Services and RxJs can do everything you want to accomplish with NgRx with none of the useless boilerplate code that is required by NgRx.
+
+He suggested to use service + RxJs instead of NgRx.
