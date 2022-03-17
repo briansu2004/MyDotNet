@@ -201,11 +201,15 @@ C:\Program Files\Microsoft Visual Studio\2022\Preview
 
 ![](image/README/vs_01.png)
 
+![](image/README/vs_02.png)
+
 ## New targets
 
 ### Blazor
 
-    Blazor is a free and open-source web framework that enables developers to create web apps using C# and HTML.
+Blazor is a free and open-source web framework that enables developers to create web apps using C# and HTML.
+
+Blazor Server vs. Blazor WebAssembly
 
 ### Sqlite
 
