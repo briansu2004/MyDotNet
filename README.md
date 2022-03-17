@@ -125,3 +125,37 @@ the Repository Pattern, Dependency Injection, Entity Framework, Data Transfer Ob
 ## C# lint
 
 StyleCop, Sonar, Resharper, Visual Studio and Roslyn
+
+## Local
+
+### SQL Server 2019 Express
+
+C:\Program Files\Microsoft SQL Server
+
+Connection String:
+
+Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
+
+SQL Server install log folder:
+
+C:\Program Files\Microsoft SQL Server\150\Setup Bootstrap\Log\20220317_084609
+
+Installation media folder:
+
+C:\SQL2019\Express_ENU
+
+Installation resource folder:
+
+C:\Program Files\Microsoft SQL Server\150\SSEI\Resources
+
+![](image/README/sql_server_2019_express_install.png)
+
+Connect SQL Server with SQL CMD:
+
+`sqlcmd -S L113220\SQLEXPRESS -E`
+
+![](image/README/sql_server_2019_express_sqlcmd.png)
+
+## SQL Server Management Studio (SSMS) 18
+
+### Visual Studio 2022 Community Edition
