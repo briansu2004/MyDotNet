@@ -147,6 +147,12 @@ How to Check if Processor is 32-bit, 64-bit, or ARM in Windows 10?
 
 dotnet-sdk-6.0.201-win-x64.exe
 
+.Net SDK 6.0.201
+
+.Net runtime 6.0.3 (x64)
+
+The folder is not under C:\Windows\Microsoft.NET\Framework or C:\Windows\Microsoft.NET\Framework64
+
 ### SQL Server 2019 Express
 
 SQL2019-SSEI-Expr.exe
@@ -183,13 +189,49 @@ SSMS-Setup-ENU.exe
 
 C:\Program Files (x86)\Microsoft SQL Server Management Studio 18
 
+![](image/README/ssms_01.png)
+
+![](image/README/ssms_02.png)
+
 ### Visual Studio 2022 Preview Enterprise Edition
 
 C:\Program Files\Microsoft Visual Studio\2022\Preview
 
 ![](image/README/visual_studio_installer.png)
 
+![](image/README/vs_01.png)
+
 ## New targets
+
+### Blazor
+
+    Blazor is a free and open-source web framework that enables developers to create web apps using C# and HTML.
+
+### Sqlite
+
+Sqlite Studio 3.3.3
+
+C:\Apps\SQLiteStudio\
+
+C:\CodeRepo\SqliteDB\Worksheet.db
+
+![](image/README/Sqlite_Worksheet_01.png)
+
+![](image/README/Sqlite_Worksheet_02.png)
+
+![](image/README/Sqlite_Worksheet_03.png)
+
+![](image/README/Sqlite_Worksheet_04.png)
+
+![](image/README/Sqlite_Worksheet_05.png)
+
+![](image/README/Sqlite_Worksheet_06.png)
+
+## Playwright
+
+Use it to do e2e
+
+https://playwright.dev/
 
 ### Telerik
 
@@ -205,29 +247,9 @@ C:\Program Files\Microsoft Visual Studio\2022\Preview
 
     online + offline mode
 
-### Blazor
-
-    Blazor is a free and open-source web framework that enables developers to create web apps using C# and HTML.
-
-### Sqlite
-
-Sqlite Studio 3.3.3
-
-C:\Apps\SQLiteStudio\
-
-![](image/README/Sqlite_Worksheet_01.png)
-
-![](image/README/Sqlite_Worksheet_02.png)
-
-![](image/README/Sqlite_Worksheet_03.png)
-
-![](image/README/Sqlite_Worksheet_04.png)
-
-![](image/README/Sqlite_Worksheet_05.png)
-
-![](image/README/Sqlite_Worksheet_06.png)
-
 ### WPF
+
+    Backup plan if MAUI doesn't work.
 
 ### PCF
 
