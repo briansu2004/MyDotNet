@@ -190,21 +190,6 @@
             "rid": "win"
           }
         }
-      },
-      "DataAccessLibrary/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Dapper": "2.0.123",
-          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
-          "System.Data.SqlClient": "4.8.3"
-        },
-        "compile": {
-          "bin/placeholder/DataAccessLibrary.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataAccessLibrary.dll": {}
-        }
       }
     }
   },
@@ -666,16 +651,13 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "DataAccessLibrary/1.0.0": {
-      "type": "project",
-      "path": "../DataAccessLibrary/DataAccessLibrary.csproj",
-      "msbuildProject": "../DataAccessLibrary/DataAccessLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "DataAccessLibrary >= 1.0.0"
+      "Dapper >= 2.0.123",
+      "Microsoft.Extensions.Configuration.Abstractions >= 6.0.0",
+      "System.Data.SqlClient >= 4.8.3"
     ]
   },
   "packageFolders": {
@@ -684,11 +666,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Code\\MyDotNet\\Blazor\\BlazorApp\\BlazorDemoUI\\BlazorDemoUI.csproj",
-      "projectName": "BlazorDemoUI",
-      "projectPath": "C:\\Code\\MyDotNet\\Blazor\\BlazorApp\\BlazorDemoUI\\BlazorDemoUI.csproj",
+      "projectUniqueName": "C:\\Code\\MyDotNet\\Blazor\\BlazorApp\\DataAccessLibrary\\DataAccessLibrary.csproj",
+      "projectName": "DataAccessLibrary",
+      "projectPath": "C:\\Code\\MyDotNet\\Blazor\\BlazorApp\\DataAccessLibrary\\DataAccessLibrary.csproj",
       "packagesPath": "C:\\Users\\x239757\\.nuget\\packages\\",
-      "outputPath": "C:\\Code\\MyDotNet\\Blazor\\BlazorApp\\BlazorDemoUI\\obj\\",
+      "outputPath": "C:\\Code\\MyDotNet\\Blazor\\BlazorApp\\DataAccessLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\x239757\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -705,11 +687,7 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {
-            "C:\\Code\\MyDotNet\\Blazor\\BlazorApp\\DataAccessLibrary\\DataAccessLibrary.csproj": {
-              "projectPath": "C:\\Code\\MyDotNet\\Blazor\\BlazorApp\\DataAccessLibrary\\DataAccessLibrary.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -721,6 +699,20 @@
     "frameworks": {
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
+        "dependencies": {
+          "Dapper": {
+            "target": "Package",
+            "version": "[2.0.123, )"
+          },
+          "Microsoft.Extensions.Configuration.Abstractions": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          },
+          "System.Data.SqlClient": {
+            "target": "Package",
+            "version": "[4.8.3, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -732,9 +724,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

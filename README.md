@@ -10,14 +10,6 @@ My .Net
 
 ![](image/README/003.png)
 
-## Using HttpClient in .NET Core to Connect to APIs in C#
-
-![](image/README/blazor_01.png)
-
-Razor page vs Razor component
-
-Blazor
-
 ## Interview Questions
 
 ![](image/README/iw_001.png)
@@ -211,6 +203,75 @@ Blazor is a free and open-source web framework that enables developers to create
 
 Blazor Server vs. Blazor WebAssembly
 
+@page
+
+@variable
+
+@event
+
+@code
+
+```
+@page "/counter"
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+```
+
+![](image/README/blazor_01.png)
+
+Razor page vs Razor component
+
+![](image/README/blazor_02.png)
+
+![](image/README/blazor_03.png)
+
+![](image/README/blazor_04.png)
+
+@using
+
+@inject
+
+@if
+
+![](image/README/blazor_component_lifecycle.png)
+
+![](image/README/blazor_05.png)
+
+Dapper
+
+Dapper is a simple object mapper for .NET that owns the title of King of Micro ORM in terms of speed, as it’s virtually as fast as using a raw ADO.NET data reader. It is available as a NuGet package. An ORM (object-relational mapper) is responsible for mapping databases and programming languages.
+
+Dapper is database independent. It does not contain any database-specific implementation. Arguably, it is chosen by people who want to write their own SQL query. It simply provides extension methods for the IDbConnection interface which helps users to query and perform CRUD operations in databases.
+
+Dapper is in production use at Stack Overflow.
+
+![](image/README/blazor_dapper.png)
+
+ctor -> tab -> create a constructor
+
+prop -> tab -> create a property
+
+Control + .
+
+Quick Actions and Refactorings (Control + .) -> Extract interface
+
+SQL Server Object Expolorer
+
+![](image/README/MSSQLLocalDB.png)
+
 ### Sqlite
 
 Sqlite Studio 3.3.3
@@ -230,6 +291,29 @@ C:\CodeRepo\SqliteDB\Worksheet.db
 ![](image/README/Sqlite_Worksheet_05.png)
 
 ![](image/README/Sqlite_Worksheet_06.png)
+
+```
+drop table people;
+
+CREATE TABLE [dbo].[People] (
+    [Id]           INT             IDENTITY (1, 1) NOT NULL,
+    [FirstName]    VARCHAR (50)  NOT NULL,
+    [LastName]     VARCHAR (50)  NOT NULL,
+    [DateOfBirth]  DATE            NULL,
+    [EmailAddress] VARCHAR (100)  NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+```
+
+Add a new item -> Razor Component
+
+Razor Component vs Razor Page vs Razor View
+
+oi is an open source icon library
+
+To format a selection: Ctrl+K, Ctrl+F
+
+To format a document: Ctrl+K, Ctrl+D
 
 ## Playwright
 

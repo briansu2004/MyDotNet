@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorDemoUI.Shared
+namespace BlazorDemoUI.Pages.MyPages
 {
     #line hidden
     using System;
@@ -75,7 +75,29 @@ using BlazorDemoUI.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 3 "C:\Code\MyDotNet\Blazor\BlazorApp\BlazorDemoUI\Pages\MyPages\People.razor"
+using DataAccessLibrary;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Code\MyDotNet\Blazor\BlazorApp\BlazorDemoUI\Pages\MyPages\People.razor"
+using DataAccessLibrary.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Code\MyDotNet\Blazor\BlazorApp\BlazorDemoUI\Pages\MyPages\People.razor"
+using BlazorDemoUI.Models;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Data/People")]
+    public partial class People : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -83,20 +105,34 @@ using BlazorDemoUI.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 33 "C:\Code\MyDotNet\Blazor\BlazorApp\BlazorDemoUI\Shared\NavMenu.razor"
+#line 52 "C:\Code\MyDotNet\Blazor\BlazorApp\BlazorDemoUI\Pages\MyPages\People.razor"
        
-    private bool collapseNavMenu = true;
+    private List<PersonModel> people;
+    private DisplayPersonModel newPerson = new DisplayPersonModel();
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+    protected override async Task OnInitializedAsync()
     {
-        collapseNavMenu = !collapseNavMenu;
+        people = await _db.GetPeople();
+    }
+
+    private async Task InsertPerson()
+    {
+        PersonModel p = new PersonModel
+            {
+                FirstName = newPerson.FirstName,
+                LastName = newPerson.LastName,
+                EmailAddress = newPerson.EmailAddress
+            };
+
+        await _db.InsertPerson(p);
+
+        people.Add(p);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPeopleData _db { get; set; }
     }
 }
 #pragma warning restore 1591

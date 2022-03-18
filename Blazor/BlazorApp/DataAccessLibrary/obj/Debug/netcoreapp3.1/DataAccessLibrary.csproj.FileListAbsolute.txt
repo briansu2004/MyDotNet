@@ -1,0 +1,10 @@
+C:\Code\MyDotNet\Blazor\BlazorApp\DataAccessLibrary\bin\Debug\netcoreapp3.1\DataAccessLibrary.deps.json
+C:\Code\MyDotNet\Blazor\BlazorApp\DataAccessLibrary\bin\Debug\netcoreapp3.1\DataAccessLibrary.dll
+C:\Code\MyDotNet\Blazor\BlazorApp\DataAccessLibrary\bin\Debug\netcoreapp3.1\DataAccessLibrary.pdb
+C:\Code\MyDotNet\Blazor\BlazorApp\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.csproj.AssemblyReference.cache
+C:\Code\MyDotNet\Blazor\BlazorApp\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Code\MyDotNet\Blazor\BlazorApp\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.AssemblyInfoInputs.cache
+C:\Code\MyDotNet\Blazor\BlazorApp\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.AssemblyInfo.cs
+C:\Code\MyDotNet\Blazor\BlazorApp\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.csproj.CoreCompileInputs.cache
+C:\Code\MyDotNet\Blazor\BlazorApp\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.dll
+C:\Code\MyDotNet\Blazor\BlazorApp\DataAccessLibrary\obj\Debug\netcoreapp3.1\DataAccessLibrary.pdb
