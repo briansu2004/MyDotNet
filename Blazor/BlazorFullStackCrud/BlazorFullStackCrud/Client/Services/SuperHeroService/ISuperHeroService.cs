@@ -8,6 +8,6 @@ namespace BlazorFullStackCrud.Client.Services.SuperHeroService
         List<Comic> Comics { get; set; }
         Task GetComics();
         Task GetSuperHeroes();
-        Task<SuperHero> GetSuperHero(int id);
+        Task<SuperHero> GetSingleHero(int id);
     }
 }

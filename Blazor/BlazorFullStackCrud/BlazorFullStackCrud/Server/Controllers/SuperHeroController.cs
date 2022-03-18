@@ -24,6 +24,13 @@ namespace BlazorFullStackCrud.Server.Controllers
             return Ok(heroes);
         }
 
+        [HttpGet("comics")]
+        public async Task<ActionResult<List<Comic>>> GetComics()
+        {
+            return Ok(comics);
+        }
+
+
         [HttpGet("{id}")]
         public async Task<ActionResult<SuperHero>> GetSingleHero(int id)
         {

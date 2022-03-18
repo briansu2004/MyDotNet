@@ -25,7 +25,7 @@
                 <td>@hero.HeroName</td>
                 <td>@hero.Comic.Name</td>
                 <td>
-                    <button class="btn btn-primary" @onclick="(() => ShowHero(hero.Id)"><i class="oi oi-pencil"></i></button>
+                    <button class="btn btn-primary" @onclick="(() => ShowHero(hero.Id))"><i class="oi oi-pencil"></i></button>
                 </td>
             </tr>
         }
@@ -42,4 +42,6 @@
     {
         NavigationManager.NavigateTo($"hero/{id}");
     }
+
+
 }

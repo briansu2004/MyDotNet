@@ -13,6 +13,6 @@ namespace BlazorFullStackCrud.Shared
         public string LastName { get; set; } = String.Empty;
         public string HeroName { get; set; } = String.Empty;
         public Comic? Comic { get; set; }
-        public int comicId { get; set; }
+        public int ComicId { get; set; }
     }
 }
