@@ -272,6 +272,31 @@ SQL Server Object Expolorer
 
 ![](image/README/MSSQLLocalDB.png)
 
+x.Server/Program.cs
+
+```
+global using BlazorFullStackCrud.Shared;
+```
+
+x.Client/Program.cs
+
+```
+global using BlazorFullStackCrud.Client.Services.SuperHeroService;
+...
+builder.Services.AddScoped<ISuperHeroService, SuperHeroService>();
+```
+
+```
+https://localhost:7251/superheroes
+https://localhost:7251/api/superhero
+```
+
+Use the @inject directive to inject the service into components. @inject has two parameters (type and name). Type represents the service type and name represents the service instance name.
+
+```
+@inject ServiceType ServiceInstanceName
+```
+
 ### Sqlite
 
 Sqlite Studio 3.3.3
