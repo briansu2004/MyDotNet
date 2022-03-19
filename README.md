@@ -297,6 +297,182 @@ Use the @inject directive to inject the service into components. @inject has two
 @inject ServiceType ServiceInstanceName
 ```
 
+NuGet:
+
+```
+Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.Design
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Sqlite
+```
+
+```
+dotnet tool install --global dotnet-ef
+```
+
+```
+PM> dotnet tool install --global dotnet-ef
+You can invoke the tool using the following command: dotnet-ef
+Tool 'dotnet-ef' (version '6.0.3') was successfully installed.
+```
+
+```
+dotnet-ef
+```
+
+```
+PM> dotnet-ef
+
+                     _/\__
+               ---==/    \\
+         ___  ___   |.    \|\
+        | __|| __|  |  )   \\\
+        | _| | _|   \_/ |  //|\\
+        |___||_|       /   \\\/\\
+
+Entity Framework Core .NET Command-line Tools 6.0.3
+
+Usage: dotnet ef [options] [command]
+
+Options:
+  --version        Show version information
+  -h|--help        Show help information
+  -v|--verbose     Show verbose output.
+  --no-color       Don't colorize output.
+  --prefix-output  Prefix output with level.
+
+Commands:
+  database    Commands to manage the database.
+  dbcontext   Commands to manage DbContext types.
+  migrations  Commands to manage migrations.
+
+Use "dotnet ef [command] --help" for more information about a command.
+PM>
+```
+
+```
+dotnet ef migrations add Initial
+```
+
+```
+PM> dotnet ef migrations add Initial
+Build started...
+Build succeeded.
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.3 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.3' with options: None
+Done. To undo this action, use 'ef migrations remove'
+PM>
+```
+
+What is dotnet EF migrations?
+
+Migration is a way to keep the database schema in sync with the EF Core model by preserving data.
+
+EF Core migrations are a set of commands which you can execute in NuGet Package Manager Console or in dotnet Command Line Interface (CLI).
+
+![](image/README/dotnet_EF_migration.png)
+
+```
+dotnet ef database update
+```
+
+```
+PM> dotnet ef database update
+Build started...
+Build succeeded.
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 6.0.3 initialized 'DataContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.3' with options: None
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (30ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [__EFMigrationsHistory] (
+          [MigrationId] nvarchar(150) NOT NULL,
+          [ProductVersion] nvarchar(32) NOT NULL,
+          CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20220319003804_Initial'.
+Applying migration '20220319003804_Initial'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Comics] (
+          [Id] int NOT NULL IDENTITY,
+          [Name] nvarchar(max) NOT NULL,
+          CONSTRAINT [PK_Comics] PRIMARY KEY ([Id])
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [SuperHeroes] (
+          [Id] int NOT NULL IDENTITY,
+          [FirstName] nvarchar(max) NOT NULL,
+          [LastName] nvarchar(max) NOT NULL,
+          [HeroName] nvarchar(max) NOT NULL,
+          [ComicId] int NOT NULL,
+          CONSTRAINT [PK_SuperHeroes] PRIMARY KEY ([Id]),
+          CONSTRAINT [FK_SuperHeroes_Comics_ComicId] FOREIGN KEY ([ComicId]) REFERENCES [Comics] ([Id]) ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name') AND [object_id] = OBJECT_ID(N'[Comics]'))
+          SET IDENTITY_INSERT [Comics] ON;
+      INSERT INTO [Comics] ([Id], [Name])
+      VALUES (1, N'Mavel');
+      IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name') AND [object_id] = OBJECT_ID(N'[Comics]'))
+          SET IDENTITY_INSERT [Comics] OFF;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name') AND [object_id] = OBJECT_ID(N'[Comics]'))
+          SET IDENTITY_INSERT [Comics] ON;
+      INSERT INTO [Comics] ([Id], [Name])
+      VALUES (2, N'DC');
+      IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name') AND [object_id] = OBJECT_ID(N'[Comics]'))
+          SET IDENTITY_INSERT [Comics] OFF;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ComicId', N'FirstName', N'HeroName', N'LastName') AND [object_id] = OBJECT_ID(N'[SuperHeroes]'))
+          SET IDENTITY_INSERT [SuperHeroes] ON;
+      INSERT INTO [SuperHeroes] ([Id], [ComicId], [FirstName], [HeroName], [LastName])
+      VALUES (1, 1, N'Peter', N'SpiderMan', N'Parker');
+      IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ComicId', N'FirstName', N'HeroName', N'LastName') AND [object_id] = OBJECT_ID(N'[SuperHeroes]'))
+          SET IDENTITY_INSERT [SuperHeroes] OFF;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ComicId', N'FirstName', N'HeroName', N'LastName') AND [object_id] = OBJECT_ID(N'[SuperHeroes]'))
+          SET IDENTITY_INSERT [SuperHeroes] ON;
+      INSERT INTO [SuperHeroes] ([Id], [ComicId], [FirstName], [HeroName], [LastName])
+      VALUES (2, 2, N'Bruce', N'BatMan', N'Wayne');
+      IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ComicId', N'FirstName', N'HeroName', N'LastName') AND [object_id] = OBJECT_ID(N'[SuperHeroes]'))
+          SET IDENTITY_INSERT [SuperHeroes] OFF;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX [IX_SuperHeroes_ComicId] ON [SuperHeroes] ([ComicId]);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+      VALUES (N'20220319003804_Initial', N'6.0.3');
+Done.
+PM>
+```
+
 ### Sqlite
 
 Sqlite Studio 3.3.3

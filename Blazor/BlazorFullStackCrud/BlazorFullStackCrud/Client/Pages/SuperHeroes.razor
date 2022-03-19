@@ -31,6 +31,7 @@
         }
     </tbody>
 </table>
+<button class="btn btn-primary" @onclick="CreateNewHero">Create New Hero</button>
 
 @code {
     protected override async Task OnInitializedAsync()
@@ -43,5 +44,8 @@
         NavigationManager.NavigateTo($"hero/{id}");
     }
 
-
+    void CreateNewHero()
+    {
+        NavigationManager.NavigateTo("/hero");
+    }
 }
