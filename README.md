@@ -473,6 +473,100 @@ Done.
 PM>
 ```
 
+Blazor Routing
+
+Routing in Blazor is achieved by providing a route template to each accessible component in the app with an @page directive.
+
+When a Razor file with an @page directive is compiled, the generated class is given a RouteAttribute specifying the route template. At runtime, the router searches for component classes with a RouteAttribute and renders whichever component has a route template that matches the requested URL.
+
+Asynchronous methods (async) don't support returning void
+
+The Blazor framework doesn't track void-returning asynchronous methods (async). As a result, exceptions aren't caught if void is returned. Always return a Task from asynchronous methods.
+
+To escape an @ symbol in Razor markup, use a second @ symbol:
+
+```
+<p>@@Username</p>
+```
+
+`App.razor`
+
+Router?
+
+```
+<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <PageTitle>Not found</PageTitle>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p role="alert">Sorry, there's nothing at this address.</p>
+        </LayoutView>
+    </NotFound>
+</Router>
+```
+
+`_Imports.razor`
+
+Every folder of an app can optionally contain a template file named \_Imports.razor.
+
+The \_Imports.razor file is similar to the \_ViewImports.cshtml file for Razor views and pages but applied specifically to Razor component files.
+
+It's simply a file where you can put you using statements for all razor files and also if you to inject something on all pages you could add it there also.
+
+You can also add [Authorize] there to make all pages require authorization as well, which is pretty nifty for a whitelist approach (add [AllowAnonymous] only if needed) if you're doing something like say an Admin portal.
+
+`Task Class`
+
+Namespace: System.Threading.Tasks
+
+Assembly: System.Runtime.dll
+
+Represents an asynchronous operation.
+
+The Task class represents a single operation that does not return a value and that usually executes asynchronously. Task objects are one of the central components of the task-based asynchronous pattern first introduced in the .NET Framework 4. Because the work performed by a Task object typically executes asynchronously on a thread pool thread rather than synchronously on the main application thread, you can use the Status property, as well as the IsCanceled, IsCompleted, and IsFaulted properties, to determine the state of a task. Most commonly, a lambda expression is used to specify the work that the task is to perform.
+
+For operations that return values, you use the Task<TResult> class.
+
+TAP vs APM vs EAP
+
+`Task-based asynchronous pattern (TAP)`
+
+TAP uses a single method to represent the initiation and completion of an asynchronous operation. This contrasts with both the Asynchronous Programming Model (APM or IAsyncResult) pattern and the Event-based Asynchronous Pattern (EAP).
+
+`Generate Angular and React components`
+
+Generate framework-specific JavaScript (JS) components from Razor components for web frameworks, such as Angular or React. This capability isn't included with .NET 6, but is enabled by the new support for rendering Razor components from JS. The JS component generation sample on GitHub demonstrates how to generate Angular and React components from Razor components. See the GitHub sample app's README.md file for additional information.
+
+Warning
+
+The Angular and React component features are currently experimental, unsupported, and subject to change or be removed at any time. We welcome your feedback on how well this particular approach meets your requirements.
+
+#### Troubleshooting
+
+![](image/README/1647711725506.png)
+
+aspnetcore-browser-refresh.js:234 WebSocket connection to 'wss://localhost:44392/BlazorFullStackCrud.Server/' failed: Error in connection establishment: net::ERR_CERT_AUTHORITY_INVALID
+
+![](image/README/1647711784499.png)
+
+```
+C:\Program Files (x86)\IIS Express\IisExpressAdminCmd.exe setupsslUrl -url:https://localhost:44392/ -UseSelfSigned
+```
+
+```
+C:\WINDOWS\system32>cd C:\Program Files (x86)\IIS Express\
+
+C:\Program Files (x86)\IIS Express>IisExpressAdminCmd.exe setupsslUrl -url:https://localhost:44392/ -UseSelfSigned
+setupsslUrlCommand 'setupsslUrl' failed.
+The requested operation requires elevation (Run as administrator).
+
+C:\Program Files (x86)\IIS Express>IisExpressAdminCmd.exe setupsslUrl -url:https://localhost:44392/ -UseSelfSigned
+Command 'setupsslUrl' completed.
+```
+
 ### Sqlite
 
 Sqlite Studio 3.3.3

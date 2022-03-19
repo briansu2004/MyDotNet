@@ -1,5 +1,4 @@
-﻿using BlazorFullStackCrud.Shared;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using System.Net.Http.Json;
 
 namespace BlazorFullStackCrud.Client.Services.SuperHeroService
@@ -49,8 +48,9 @@ namespace BlazorFullStackCrud.Client.Services.SuperHeroService
 
         private async Task SetHeroes(HttpResponseMessage result)
         {
-            var response = await result.Content.ReadFromJsonAsync<List<SuperHero>>();
-            Heroes = response;
+            //var response = await result.Content.ReadFromJsonAsync<List<SuperHero>>();
+            //Heroes = response;
+            Heroes = await result.Content.ReadFromJsonAsync<List<SuperHero>>();
             _navigationManager.NavigateTo("superheroes");
         }
 

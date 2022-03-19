@@ -1,6 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorFullStackCrud.Server.Controllers
 {
@@ -8,8 +6,6 @@ namespace BlazorFullStackCrud.Server.Controllers
     [ApiController]
     public class SuperHeroController : ControllerBase
     {
-        private readonly DataContext _context;
-
         //public static List<Comic> comics = new List<Comic> {
         //    new Comic { Id = 1, Name = "Mavel"},
         //    new Comic { Id = 2, Name = "DC"}
@@ -19,6 +15,8 @@ namespace BlazorFullStackCrud.Server.Controllers
         //    new SuperHero { Id = 1, FirstName = "Peter", LastName = "Parker", HeroName = "SpiderMan", Comic = comics[0], ComicId = 1 },
         //    new SuperHero { Id = 2, FirstName = "Bruce", LastName = "Wayne", HeroName = "BatMan", Comic = comics[1], ComicId = 2 }
         //};
+
+        private readonly DataContext _context;
 
         public SuperHeroController(DataContext context)
         {
@@ -100,10 +98,9 @@ namespace BlazorFullStackCrud.Server.Controllers
             return Ok(await GetDbHeroes());
         }
 
-
         private async Task<List<SuperHero>> GetDbHeroes()
         {
-            return await _context.SuperHeroes.Include(sh => sh.Comic).ToListAsync();
+            return await _context.SuperHeroes.Include(h => h.Comic).ToListAsync();
         }
     }
 }
