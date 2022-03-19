@@ -1,5 +1,17 @@
 # Blazor
 
+Blazor (Browser + Razor)
+
+## Blazor vs Razor vs WebAssembly
+
+Blazor is a relatively new Microsoft ASP.NET Core web framework that allows developers to write code for browsers in C#. Blazor is based on existing web technologies like HTML and CSS but then allows the developer to use C# and Razor syntax instead of JavaScript.
+
+Razor is a popular template markup syntax for .NET.
+
+Blazor (Browser + Razor) enables developers to build interactive and reusable web UI for client-side applications written in .NET and implemented under WebAssembly. With both client and server code written in C#, it allows you to share code and libraries, providing a platform to enable the development of vibrant, contemporary single-page applications (SPA) while using .NET end-to-end.
+
+WebAssembly, often abbreviated Wasm, is a new standard that can be run in modern web browsers bringing language diversity to the web platform. Wasm is a low-level assembly-like language featuring a compact binary format that makes it possible to run code written in multiple languages such as C/C++, Java, and Rust on the web with near-native performance.
+
 Blazor is a free and open-source web framework that enables developers to create web apps using C# and HTML.
 
 Blazor Server vs. Blazor WebAssembly
@@ -9,10 +21,6 @@ Add a new item -> Razor Component
 Razor Component vs Razor Page vs Razor View
 
 oi is an open source icon library
-
-To format a selection: Ctrl+K, Ctrl+F
-
-To format a document: Ctrl+K, Ctrl+D
 
 @page
 
@@ -61,7 +69,26 @@ Razor page vs Razor component
 
 ![](image/README/blazor_05.png)
 
-Dapper
+### Features of Blazor
+
+- Build Web UIs with C# instead of JavaScript or TypeScript
+- Build progressive web apps (PWAs)
+- Create and use reusable components written in C#
+- Full debugging support on the server-side and debugging with some limitations on the client-side
+- Data binding with the HTML DOM (limited two-way binding)
+- Share code between client and server in C#
+- Server and client-side models
+- Server-side rendering (aka pre-rendering) for higher performance
+- Ahead of time compilation
+- Scoped styles
+- WebSocket connections
+- Works offline (client side WebAssembly only)
+- Works in all modern web browsers including mobile browsers
+- Blazor code has the same security sandbox as JavaScript
+- Use JavaScript interop to call JavaScript frameworks and libraries
+- Open source
+
+## Dapper
 
 Dapper is a simple object mapper for .NET that owns the title of King of Micro ORM in terms of speed, as it’s virtually as fast as using a raw ADO.NET data reader. It is available as a NuGet package. An ORM (object-relational mapper) is responsible for mapping databases and programming languages.
 
@@ -107,6 +134,8 @@ Use the @inject directive to inject the service into components. @inject has two
 ```
 @inject ServiceType ServiceInstanceName
 ```
+
+## dotnet-ef
 
 NuGet:
 
@@ -284,7 +313,7 @@ Done.
 PM>
 ```
 
-Blazor Routing
+## Blazor Routing
 
 Routing in Blazor is achieved by providing a route template to each accessible component in the app with an @page directive.
 
@@ -319,7 +348,7 @@ Router?
 </Router>
 ```
 
-`_Imports.razor`
+## \_Imports.razor
 
 Every folder of an app can optionally contain a template file named \_Imports.razor.
 
@@ -329,7 +358,7 @@ It's simply a file where you can put you using statements for all razor files an
 
 You can also add [Authorize] there to make all pages require authorization as well, which is pretty nifty for a whitelist approach (add [AllowAnonymous] only if needed) if you're doing something like say an Admin portal.
 
-`Task Class`
+## Task Class
 
 Namespace: System.Threading.Tasks
 
@@ -341,7 +370,7 @@ The Task class represents a single operation that does not return a value and th
 
 For operations that return values, you use the Task<TResult> class.
 
-TAP vs APM vs EAP
+### TAP vs APM vs EAP
 
 `Task-based asynchronous pattern (TAP)`
 
@@ -355,13 +384,15 @@ Warning
 
 The Angular and React component features are currently experimental, unsupported, and subject to change or be removed at any time. We welcome your feedback on how well this particular approach meets your requirements.
 
-#### Troubleshooting
+## Troubleshooting
 
 ![](image/README/2_issues.png)
 
 aspnetcore-browser-refresh.js:234 WebSocket connection to 'wss://localhost:44392/BlazorFullStackCrud.Server/' failed: Error in connection establishment: net::ERR_CERT_AUTHORITY_INVALID
 
 ![](image/README/websocket_issue.png)
+
+Someone said -
 
 ```
 C:\Program Files (x86)\IIS Express\IisExpressAdminCmd.exe setupsslUrl -url:https://localhost:44392/ -UseSelfSigned
@@ -378,6 +409,6 @@ C:\Program Files (x86)\IIS Express>IisExpressAdminCmd.exe setupsslUrl -url:https
 Command 'setupsslUrl' completed.
 ```
 
-This doesn't work :-)
+However this doesn't work.
 
 Changed to `<td>@hero.Comic?.Name</td>` to `<td>@hero.Comic?.Name</td>` resovled the null issue.

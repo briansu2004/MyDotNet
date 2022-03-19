@@ -19,3 +19,11 @@ Tools > Get Tools and Features
 ![](image/my_MAUI/001.png)
 
 ![](image/my_MAUI/002.png)
+
+![](image/my_MAUI/003.png)
+
+![](image/my_MAUI/004.png)
+
+![](image/my_MAUI/005.png)
+
+![](image/my_MAUI/006.png)
