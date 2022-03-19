@@ -140,17 +140,17 @@ https://playwright.dev/
 
     Backup plan if MAUI doesn't work.
 
-### Misc
+## Misc
 
-#### Visual Studio format code
+### Visual Studio format code
 
 To format a selection: Ctrl+K, Ctrl+F
 
 To format a document: Ctrl+K, Ctrl+D
 
-#### PCF
+### PCF
 
-#### NgRx
+### NgRx
 
 NgRx Store provides reactive state management for Angular apps inspired by Redux. Unify the events in your application and derive state using RxJS.
 
@@ -161,3 +161,5 @@ He suggested to use service + RxJs instead of NgRx.
 ## Interview Questions
 
 [.Net Interview Questions](my_DotNetIwQ.md)
+
+## Repos to clone
