@@ -412,3 +412,5 @@ Command 'setupsslUrl' completed.
 However this doesn't work.
 
 Changed to `<td>@hero.Comic?.Name</td>` to `<td>@hero.Comic?.Name</td>` resovled the null issue.
+
+## Blazor vs Angular/React
