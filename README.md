@@ -6,7 +6,23 @@ My .Net
 
 ### My Linked In posts
 
-I got new skills - Blazor, MAUI and Telerik.
+Got some new additions to my collection - Blazor + MAUI + Telerik.
+
+## Modern .Net migration
+
+![](image/README/dotnet_migration_01.png)
+
+![](image/README/dotnet_migration_02.png)
+
+![](image/README/dotnet_migration_03.png)
+
+![](image/README/dotnet_migration_04.png)
+
+![](image/README/dotnet_migration_05.png)
+
+![](image/README/dotnet_migration_06.png)
+
+![](image/README/dotnet_migration_07.png)
 
 ## General
 
@@ -19,6 +35,46 @@ I got new skills - Blazor, MAUI and Telerik.
 ![](image/README/004.png)
 
 ![](image/README/005.png)
+
+## ASP .Net core
+
+ASP .Net AJAX -> ASP .Net MVC -> ASP .Net Core
+
+![](image/README/aspnet_01.png)
+
+![](image/README/aspnet_02.png)
+
+![](image/README/aspnet_03.png)
+
+![](image/README/aspnet_04.png)
+
+![](image/README/aspnet_05.png)
+
+![](image/README/aspnet_06.png)
+
+![](image/README/aspnet_07.png)
+
+![](image/README/aspnet_08.png)
+
+![](image/README/aspnet_09.png)
+
+![](image/README/aspnet_10.png)
+
+![](image/README/aspnet_11.png)
+
+![](image/README/aspnet_12.png)
+
+![](image/README/aspnet_13.png)
+
+![](image/README/aspnet_14.png)
+
+## Entity Framework
+
+![](image/README/ef_01.png)
+
+![](image/README/ef_02.png)
+
+![](image/README/ef_03.png)
 
 ## Front end : ASP .net or Angular/React
 
@@ -132,9 +188,9 @@ https://playwright.dev/
 
 ### Telerik
 
-    Progressive Telerik
+Progressive Telerik
 
-    Telerik UI for ASP.NET AJAX
+[My Telerik](my_Telerik.md)
 
 ### WPF
 
