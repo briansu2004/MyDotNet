@@ -384,9 +384,19 @@ Warning
 
 The Angular and React component features are currently experimental, unsupported, and subject to change or be removed at any time. We welcome your feedback on how well this particular approach meets your requirements.
 
-## ActionResult
+## ActionResult Class
+
+Namespace: System.Web.Mvc
+
+Assembly: System.Web.Mvc.dll
+
+Package: Microsoft.AspNet.Mvc v5.2.6
+
+Represents the result of an action method.
 
 An ActionResult is a return type of a controller method, also called an action method, and serves as the base class for \*Result classes. Action methods return models to views, file streams, redirect to other controllers, or whatever is necessary for the task at hand.
+
+IActionResult is an interface and ActionResult is an implementation of that interface in ASP.NET C#.
 
 ## Troubleshooting
 

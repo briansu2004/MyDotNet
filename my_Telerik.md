@@ -6,5 +6,4 @@
 
 https://www.telerik.com/try/ui-for-asp.net-ajax?file=installer-zip
 
-
-https://www.telerik.com/try/ui-for-maui?file=installer-zip
+## Full-Stack C# with Telerik UI for Blazor and Entity Framework
