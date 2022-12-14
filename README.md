@@ -166,11 +166,11 @@ StyleCop, Sonar, Resharper, Visual Studio and Roslyn
 
 ### MAUI
 
-    .NET Multi-platform App UI documentation
+.NET Multi-platform App UI documentation
 
-    .NET Multi-platform App UI (.NET MAUI) lets you build native apps using a .NET cross-platform UI toolkit that targets the mobile and desktop form factors on Android, iOS, macOS, Windows, and Tizen.
+.NET Multi-platform App UI (.NET MAUI) lets you build native apps using a .NET cross-platform UI toolkit that targets the mobile and desktop form factors on Android, iOS, macOS, Windows, and Tizen.
 
-    online + offline mode
+online + offline mode
 
 [My MAUI](my_MAUI.md)
 
@@ -194,7 +194,7 @@ Progressive Telerik
 
 ### WPF
 
-    Backup plan if MAUI doesn't work.
+Backup plan if MAUI doesn't work.
 
 ## Misc
 
