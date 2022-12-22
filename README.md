@@ -82,9 +82,9 @@ If you want a good alternative to Angular, I'd recommend you Blazor WebAssembly 
 
 The only real alternative to Angular in the .NET Ecosystem is Blazor WebAssembly, where you can write SPA with C# or F# with the power of WebAssembly, this allows you to run your app without special configurations or IIS.
 
-## C#
+## C\#
 
-### Using .Net Core + MVC + Swagger + VSCode!
+### Using .Net Core + MVC + Swagger + VSCode
 
 .NET 5 REST API Tutorial - Build From Scratch With C#
 
