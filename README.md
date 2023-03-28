@@ -4,6 +4,36 @@ My .Net
 
 ## My .Net experience
 
+### Project 4
+
+- Built a new web app and a new tablet app and deployed to Azure Cloud for Ministry of Transportation and Mistry of Labour, Immigration, Training and Skills Development
+  - For the offline mode tablet app, built the backend RESTful APIs with .Net, C#, LINQ, Entity Framework; created the responsive front-end UI with .NET MAUI, Telerik UI and DevTools to follow the Zeplin wireframes; and persisted data in SQLite.
+  - For the online web app, created the backend RESTful APIs with .Net, C#, LINQ, Entity Framework; built the responsive front-end UI with Blazor, Telerik UI and DevTools to follow the Zeplin designs; and persisted data in Azure SQL database.
+  - Performed the unit testing with NUnit and XUnit.
+  - Automated the integration testing with Postman and Azure Data Studio.
+  - Managed code repositories with Git and Azure DevOps.
+
+### Project 3
+
+- Modernized an on premise application built with C# .Net and MS SQL Server to AWS cloud with Amazon Relational Database Service for a bank client
+  - Installed and configured AWS Toolkit for Visual Studio.
+  - Switched on premise MS SQL Server to AWS RDS.
+  - Scaled performance with asynchronous messaging.
+  - Published ASP .NET Core application to AWS Elastic Beanstalk.
+  - Added Docker support to ASP .NET application.
+  - Packaged .NET application in Docker using MSIs.
+  - Deployed to Docker containers Fargate.
+  - Ensured containers’ Load Balancer can access RDS instance.
+
+### Project 2
+
+- For the client Hydro One, built and enhanced many Data, SAP, GIS, Web and Tablet applications (Java and C#) and provided production supports 24x7 for SLA level 1 or 2.
+
+### Project 1
+
+- Built the internal scorecard report application for Regional VPs to monitor and compare branches’ performance. Every month huge amount of data was transformed from IBM mainframe with JCL jobs, loaded with other legacy application data to MS SQL Server with SSIS, then created dashboards, KPIs and drill up or drill down reports with SSRS.
+- Built the web app with C# and ASP .net.
+
 ### My Linked In posts
 
 Got some new additions to my collection - Blazor + MAUI + Telerik.
@@ -88,11 +118,11 @@ The only real alternative to Angular in the .NET Ecosystem is Blazor WebAssembly
 
 .NET 5 REST API Tutorial - Build From Scratch With C#
 
-https://www.youtube.com/watch?v=ZXdFisA_hOY
+<https://www.youtube.com/watch?v=ZXdFisA_hOY>
 
 .NET Core 3.1 MVC REST API - Full Course
 
-https://www.youtube.com/watch?v=fmvcAzHpsk8
+<https://www.youtube.com/watch?v=fmvcAzHpsk8>
 
 ![](image/README/MVC_01.png)
 
@@ -184,7 +214,7 @@ Sqlite Studio 3.3.3
 
 Use it to do e2e
 
-https://playwright.dev/
+<https://playwright.dev/>
 
 ### Telerik
 
@@ -219,3 +249,5 @@ He suggested to use service + RxJs instead of NgRx.
 [.Net Interview Questions](my_DotNetIwQ.md)
 
 ## Repos to clone
+
+...
