@@ -1,6 +1,31 @@
-# MyDotNet
+# My .Net
 
-My .Net
+- [My .Net experience](#my-net-experience)
+  - [Project 4](#project-4)
+  - [Project 3](#project-3)
+  - [Project 2](#project-2)
+  - [Project 1](#project-1)
+- [Modern .Net Migration](#modern-net-migration)
+- [.Net Overview](#net-overview)
+- [ASP .Net Core](#asp-net-core)
+- [Entity Framework](#entity-framework)
+- [C#](#c)
+  - [.Net Core + MVC + Swagger + VSCode](#net-core--mvc--swagger--vscode)
+  - [Web API](#web-api)
+  - [Refit](#refit)
+- [Entity Framework, EFCore](#entity-framework-efcore)
+- [MVC? Blazor? Razor Pages?](#mvc-blazor-razor-pages)
+- [C# lint](#c-lint)
+- [.Net installation](#net-installation)
+- [Blazor](#blazor)
+- [MAUI](#maui)
+- [Sqlite](#sqlite)
+- [Playwright](#playwright)
+- [Telerik](#telerik)
+- [WPF](#wpf)
+- [Misc](#misc)
+- [Visual Studio format code](#visual-studio-format-code)
+- [.Net Interview Questions](#net-interview-questions)
 
 ## My .Net experience
 
@@ -23,7 +48,7 @@ My .Net
   - Added Docker support to ASP .NET application.
   - Packaged .NET application in Docker using MSIs.
   - Deployed to Docker containers Fargate.
-  - Ensured containers’ Load Balancer can access RDS instance.
+  - Ensured containers' Load Balancer can access RDS instance.
 
 ### Project 2
 
@@ -31,102 +56,42 @@ My .Net
 
 ### Project 1
 
-- Built the internal scorecard report application for Regional VPs to monitor and compare branches’ performance. Every month huge amount of data was transformed from IBM mainframe with JCL jobs, loaded with other legacy application data to MS SQL Server with SSIS, then created dashboards, KPIs and drill up or drill down reports with SSRS.
+- Built the internal scorecard report application for Regional VPs to monitor and compare branches' performance. Every month huge amount of data was transformed from IBM mainframe with JCL jobs, loaded with other legacy application data to MS SQL Server with SSIS, then created dashboards, KPIs and drill up or drill down reports with SSRS.
 - Built the web app with C# and ASP .net.
 
-### My Linked In posts
+<!-- ### My Linked In Posts -->
 
-Got some new additions to my collection - Blazor + MAUI + Telerik.
+<!-- New additions to my collection - Blazor + MAUI + Telerik -->
 
-## Modern .Net migration
+## [Modern .Net Migration](ModernDotNetMigration.md)
 
-![](image/README/dotnet_migration_01.png)
+## [.Net Overview](DotNetOverview.md)
 
-![](image/README/dotnet_migration_02.png)
+## [ASP .Net Core](AspDotNetCore.md)
 
-![](image/README/dotnet_migration_03.png)
+## [Entity Framework](EntityFramework.md)
 
-![](image/README/dotnet_migration_04.png)
-
-![](image/README/dotnet_migration_05.png)
-
-![](image/README/dotnet_migration_06.png)
-
-![](image/README/dotnet_migration_07.png)
-
-## General
-
-![](image/README/001.png)
-
-![](image/README/002.png)
-
-![](image/README/003.png)
-
-![](image/README/004.png)
-
-![](image/README/005.png)
-
-## ASP .Net core
-
-ASP .Net AJAX -> ASP .Net MVC -> ASP .Net Core
-
-![](image/README/aspnet_01.png)
-
-![](image/README/aspnet_02.png)
-
-![](image/README/aspnet_03.png)
-
-![](image/README/aspnet_04.png)
-
-![](image/README/aspnet_05.png)
-
-![](image/README/aspnet_06.png)
-
-![](image/README/aspnet_07.png)
-
-![](image/README/aspnet_08.png)
-
-![](image/README/aspnet_09.png)
-
-![](image/README/aspnet_10.png)
-
-![](image/README/aspnet_11.png)
-
-![](image/README/aspnet_12.png)
-
-![](image/README/aspnet_13.png)
-
-![](image/README/aspnet_14.png)
-
-## Entity Framework
-
-![](image/README/ef_01.png)
-
-![](image/README/ef_02.png)
-
-![](image/README/ef_03.png)
-
-## Front end : ASP .net or Angular/React
+<!-- ## Front end : ASP .net or Angular/React
 
 If you want a good alternative to Angular, I'd recommend you Blazor WebAssembly not exactly ASP .NET Core.
 
-The only real alternative to Angular in the .NET Ecosystem is Blazor WebAssembly, where you can write SPA with C# or F# with the power of WebAssembly, this allows you to run your app without special configurations or IIS.
+The only real alternative to Angular in the .NET Ecosystem is Blazor WebAssembly, where you can write SPA with C# or F# with the power of WebAssembly, this allows you to run your app without special configurations or IIS. -->
 
 ## C\#
 
-### Using .Net Core + MVC + Swagger + VSCode
+### .Net Core + MVC + Swagger + VSCode
 
-.NET 5 REST API Tutorial - Build From Scratch With C#
+<!-- .NET 5 REST API Tutorial - Build From Scratch With C#
 
 <https://www.youtube.com/watch?v=ZXdFisA_hOY>
 
 .NET Core 3.1 MVC REST API - Full Course
 
-<https://www.youtube.com/watch?v=fmvcAzHpsk8>
+<https://www.youtube.com/watch?v=fmvcAzHpsk8> -->
 
-![](image/README/MVC_01.png)
+<!-- ![](image/README/MVC_01.png)
 
-![](image/README/MVC_02.png)
+![](image/README/MVC_02.png) -->
 
 dotnet new ...
 
@@ -170,16 +135,6 @@ Refit is a type-safe REST Client for . NET Core, Xamarin and . Net - developed b
 
 ## MVC? Blazor? Razor Pages?
 
-## Misc
-
-Linq
-
-Razor
-
-MVC
-
-the Repository Pattern, Dependency Injection, Entity Framework, Data Transfer Objects (DTOs), AutoMapper
-
 ## C# lint
 
 StyleCop, Sonar, Resharper, Visual Studio and Roslyn
@@ -188,13 +143,11 @@ StyleCop, Sonar, Resharper, Visual Studio and Roslyn
 
 [.Net installation](my_DotNetInstall.md)
 
-## New targets
-
-### Blazor
+## Blazor
 
 [My Blazor](my_Blazor.md)
 
-### MAUI
+## MAUI
 
 .NET Multi-platform App UI documentation
 
@@ -204,7 +157,7 @@ online + offline mode
 
 [My MAUI](my_MAUI.md)
 
-### Sqlite
+## Sqlite
 
 Sqlite Studio 3.3.3
 
@@ -216,38 +169,40 @@ Use it to do e2e
 
 <https://playwright.dev/>
 
-### Telerik
+## Telerik
 
 Progressive Telerik
 
 [My Telerik](my_Telerik.md)
 
-### WPF
+## WPF
 
 Backup plan if MAUI doesn't work.
 
 ## Misc
 
-### Visual Studio format code
+Linq
+
+Razor
+
+MVC
+
+The Repository Pattern, Dependency Injection, Entity Framework, Data Transfer Objects (DTOs), AutoMapper
+
+## Visual Studio format code
 
 To format a selection: Ctrl+K, Ctrl+F
 
 To format a document: Ctrl+K, Ctrl+D
 
-### PCF
+<!-- ### PCF
 
 ### NgRx
 
 NgRx Store provides reactive state management for Angular apps inspired by Redux. Unify the events in your application and derive state using RxJS.
 
-Someone said - NgRx has so much boilerplate code and it’s syntax is not straight forward at all. Services and RxJs can do everything you want to accomplish with NgRx with none of the useless boilerplate code that is required by NgRx.
+Someone said - NgRx has so much boilerplate code and it's syntax is not straight forward at all. Services and RxJs can do everything you want to accomplish with NgRx with none of the useless boilerplate code that is required by NgRx.
 
-He suggested to use service + RxJs instead of NgRx.
+He suggested to use service + RxJs instead of NgRx. -->
 
-## Interview Questions
-
-[.Net Interview Questions](my_DotNetIwQ.md)
-
-## Repos to clone
-
-...
+## [.Net Interview Questions](my_DotNetIwQ.md)
